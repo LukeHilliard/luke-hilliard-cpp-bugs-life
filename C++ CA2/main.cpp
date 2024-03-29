@@ -5,7 +5,7 @@ int main() {
     map<int, func> menuOptions;
 
     // TODO add calls to methods for each menu option
-//    menuOptions[1] = ;
+    menuOptions[1] = initializeBugBoard;
 //    menuOptions[2] = ;
 //    menuOptions[3] = ;
 //    menuOptions[4] = ;
@@ -42,7 +42,6 @@ int main() {
 }
 
 void displayMenu() {
-
     cout << "\t  1. Initialize Bug Board\n";
     cout << "\t  2. Display all Bugs\n";
     cout << "\t  3. Find a Bug\n";
@@ -51,4 +50,21 @@ void displayMenu() {
     cout << "\t  6. Display all Cells listing their bugs\n";
     cout << "\t  7. Run Simulation\n";
     cout << "\t  8. Exit\n";
+}
+
+void initializeBugBoard() {
+    string line;
+    ifstream fin("bugs.txt");
+    if(fin)
+    {
+        while(!fin.eof()) {
+            getline(fin, line);
+            cout << line << endl;
+        }
+        fin.close();
+    }
+    else
+    {
+        cout << "error opening file." <<endl;
+    }
 }
