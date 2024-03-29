@@ -9,5 +9,5 @@ typedef void (*func)();
 
 #ifndef C_CA2_BUGSLIFE_H
 #define C_CA2_BUGSLIFE_H
-
+void displayMenu();
 #endif //C_CA2_BUGSLIFE_H
