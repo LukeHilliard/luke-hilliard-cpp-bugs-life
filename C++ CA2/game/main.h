@@ -6,17 +6,16 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-#include "Bug.h"
-#include "Crawler.h"
-#include "Hopper.h"
+#include "../bugs/Bug.h"
+#include "../bugs/Crawler.h"
+#include "../bugs/Hopper.h"
+#include "Board.h"
 
 using namespace std;
 typedef void (*func)();
 
-
-void displayMenu();
 void initializeBugBoard();
-void tokenizeInputStream(string, char, vector<Bug*>&);
+void displayMenu();
 void displayBoard();
 //void displayAddedBugs(const vector<Bug*>&);
 #endif //C_CA2_BUGSLIFE_H

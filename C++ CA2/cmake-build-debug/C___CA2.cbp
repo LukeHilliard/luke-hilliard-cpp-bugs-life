@@ -78,22 +78,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Bug.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Bug.cpp">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Bug.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Bug.h">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Crawler.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Crawler.cpp">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Crawler.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Crawler.h">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Hopper.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Direction.h">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Hopper.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Hopper.cpp">
+			<Option target="C___CA2"/>
+		</Unit>
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Hopper.h">
+			<Option target="C___CA2"/>
+		</Unit>
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/Board.cpp">
+			<Option target="C___CA2"/>
+		</Unit>
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/Board.h">
 			<Option target="C___CA2"/>
 		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp">

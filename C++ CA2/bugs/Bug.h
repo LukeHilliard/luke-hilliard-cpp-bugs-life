@@ -5,9 +5,8 @@
 #define C_CA2_BUG_H
 #include <utility>
 #include <list>
+#include "Direction.h"
 using namespace std;
-
-enum Direction {NORTH = 1, EAST = 2, SOUTH = 3, WEST = 4};
 
 class Bug {
 protected:
