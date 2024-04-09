@@ -9,4 +9,6 @@ add_executable(C___CA2 main.cpp
         Crawler.cpp
         Bug.cpp
         Hopper.h
-        Hopper.cpp)
+        Hopper.cpp
+        Board.cpp
+        Board.h)
