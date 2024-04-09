@@ -4,8 +4,8 @@
 #ifndef LUKE_HILLIARD_CPP_BUGS_LIFE_CRAWLER_H
 #define LUKE_HILLIARD_CPP_BUGS_LIFE_CRAWLER_H
 #include "Bug.h"
+#include "Direction.h"
 #include <string>
-
 
 
 class Crawler : public Bug {
@@ -32,7 +32,7 @@ public:
                  "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") |  " +
                  "Status: " + status + " | "
                  "Size  : " + to_string(size) + " | " +
-                 "Facing: " + to_string(direction) + " |\n";
+                 "Facing: " + directionToString(direction) + " |\n";
 
     }
 

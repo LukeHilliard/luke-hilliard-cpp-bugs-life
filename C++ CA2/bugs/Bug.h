@@ -3,9 +3,9 @@
 //
 #ifndef C_CA2_BUG_H
 #define C_CA2_BUG_H
+#include "Direction.h"
 #include <utility>
 #include <list>
-#include "Direction.h"
 using namespace std;
 
 class Bug {

@@ -105,10 +105,10 @@
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/Board.h">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.cpp">
 			<Option target="C___CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.h">
 			<Option target="C___CA2"/>
 		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/CMakeLists.txt">

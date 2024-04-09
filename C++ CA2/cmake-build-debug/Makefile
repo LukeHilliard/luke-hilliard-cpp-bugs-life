@@ -225,29 +225,29 @@ game/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/game/Board.cpp.s
 .PHONY : game/Board.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+game/main.o: game/main.cpp.o
+.PHONY : game/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/main.cpp.o
-.PHONY : main.cpp.o
+game/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/game/main.cpp.o
+.PHONY : game/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+game/main.i: game/main.cpp.i
+.PHONY : game/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/main.cpp.i
-.PHONY : main.cpp.i
+game/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/game/main.cpp.i
+.PHONY : game/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+game/main.s: game/main.cpp.s
+.PHONY : game/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/main.cpp.s
-.PHONY : main.cpp.s
+game/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C___CA2.dir/build.make CMakeFiles/C___CA2.dir/game/main.cpp.s
+.PHONY : game/main.cpp.s
 
 # Help Target
 help:
@@ -270,9 +270,9 @@ help:
 	@echo "... game/Board.o"
 	@echo "... game/Board.i"
 	@echo "... game/Board.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... game/main.o"
+	@echo "... game/main.i"
+	@echo "... game/main.s"
 .PHONY : help
 
 

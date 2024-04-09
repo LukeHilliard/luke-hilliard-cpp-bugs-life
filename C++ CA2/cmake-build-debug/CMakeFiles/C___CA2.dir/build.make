@@ -69,19 +69,19 @@ include CMakeFiles/C___CA2.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/C___CA2.dir/flags.make
 
-CMakeFiles/C___CA2.dir/main.cpp.o: CMakeFiles/C___CA2.dir/flags.make
-CMakeFiles/C___CA2.dir/main.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/C++\ CA2/main.cpp
-CMakeFiles/C___CA2.dir/main.cpp.o: CMakeFiles/C___CA2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/C___CA2.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C___CA2.dir/main.cpp.o -MF CMakeFiles/C___CA2.dir/main.cpp.o.d -o CMakeFiles/C___CA2.dir/main.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp"
+CMakeFiles/C___CA2.dir/game/main.cpp.o: CMakeFiles/C___CA2.dir/flags.make
+CMakeFiles/C___CA2.dir/game/main.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/C++\ CA2/game/main.cpp
+CMakeFiles/C___CA2.dir/game/main.cpp.o: CMakeFiles/C___CA2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/C___CA2.dir/game/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C___CA2.dir/game/main.cpp.o -MF CMakeFiles/C___CA2.dir/game/main.cpp.o.d -o CMakeFiles/C___CA2.dir/game/main.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.cpp"
 
-CMakeFiles/C___CA2.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C___CA2.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp" > CMakeFiles/C___CA2.dir/main.cpp.i
+CMakeFiles/C___CA2.dir/game/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C___CA2.dir/game/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.cpp" > CMakeFiles/C___CA2.dir/game/main.cpp.i
 
-CMakeFiles/C___CA2.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C___CA2.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp" -o CMakeFiles/C___CA2.dir/main.cpp.s
+CMakeFiles/C___CA2.dir/game/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C___CA2.dir/game/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.cpp" -o CMakeFiles/C___CA2.dir/game/main.cpp.s
 
 CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o: CMakeFiles/C___CA2.dir/flags.make
 CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/C++\ CA2/bugs/Crawler.cpp
@@ -141,7 +141,7 @@ CMakeFiles/C___CA2.dir/game/Board.cpp.s: cmake_force
 
 # Object files for target C___CA2
 C___CA2_OBJECTS = \
-"CMakeFiles/C___CA2.dir/main.cpp.o" \
+"CMakeFiles/C___CA2.dir/game/main.cpp.o" \
 "CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o" \
 "CMakeFiles/C___CA2.dir/bugs/Bug.cpp.o" \
 "CMakeFiles/C___CA2.dir/bugs/Hopper.cpp.o" \
@@ -150,7 +150,7 @@ C___CA2_OBJECTS = \
 # External object files for target C___CA2
 C___CA2_EXTERNAL_OBJECTS =
 
-C___CA2: CMakeFiles/C___CA2.dir/main.cpp.o
+C___CA2: CMakeFiles/C___CA2.dir/game/main.cpp.o
 C___CA2: CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o
 C___CA2: CMakeFiles/C___CA2.dir/bugs/Bug.cpp.o
 C___CA2: CMakeFiles/C___CA2.dir/bugs/Hopper.cpp.o
