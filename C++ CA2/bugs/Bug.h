@@ -25,5 +25,6 @@ protected:
 public:
     string getDirection();
     virtual string toString() = 0;
+    int getID();
 };
 #endif //C_CA2_BUG_H
