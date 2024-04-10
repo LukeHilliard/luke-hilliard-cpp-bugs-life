@@ -24,6 +24,7 @@ public:
     void initializeBugBoard();
     void tokenizeInputStream(string line, char type);
     void displayAllBugs();
+    void tapBugBoard();
 
     //getters
     bool getBoardState();

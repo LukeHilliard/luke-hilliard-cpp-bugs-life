@@ -17,13 +17,10 @@ protected:
     bool alive;
     list<pair<int, int>> path;
 
-
-
-    virtual void move() = 0;
-    bool isWayBlocked();
-
 public:
-    string getDirection();
+    virtual void move() = 0;
+    bool isWayBlocked(pair<int, int>);
+    Direction getDirection();
     virtual string toString() = 0;
     int getID();
 };

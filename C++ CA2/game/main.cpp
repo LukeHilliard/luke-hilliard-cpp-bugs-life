@@ -4,6 +4,7 @@ int main() {
     int choice;
     bool exit = false;
     bool boardIsInitialized;
+
     Board* board = new Board();
     do{
         boardIsInitialized = board->getBoardState();
@@ -61,7 +62,8 @@ int main() {
                 break;
             }
             case 4: {
-
+                board->tapBugBoard();
+                break;
             }
             case 5: {
 
@@ -95,14 +97,7 @@ void displayMenu() {
     cout << "\t  -1. Exit\n";
 }
 
-////// Method to find bug by ID, passing a reference to TODO finish this comment
-//void findBugById(const Board* &board) {
-//    int inputID, temp;
-//
-//    while(true) { // Infinite loop until user wants to return to main menu
-//
-//    }
-//}
+
 
 
 
