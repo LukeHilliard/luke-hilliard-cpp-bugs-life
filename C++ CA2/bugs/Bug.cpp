@@ -5,6 +5,8 @@
 #include "Bug.h"
 // creation of classes in c++ followed from: https://www.w3schools.com/cpp/cpp_classes.asp
 
+//// Getters
+int Bug::getID() {return this->id;}
 
 
-
+//// Setters

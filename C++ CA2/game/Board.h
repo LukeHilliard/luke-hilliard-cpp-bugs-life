@@ -28,6 +28,7 @@ public:
     //getters
     bool getBoardState();
     int getBugAmount();
+    void getBugById(int);
 
     // setters
     void updateBoardState(bool);

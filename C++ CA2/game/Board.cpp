@@ -7,12 +7,26 @@ Board::Board() {
     this->isInitialized = false;
 }
 //// Getters
-bool Board::getBoardState() {
-    return this->isInitialized;
-}
+bool Board::getBoardState() {return this->isInitialized;}
 int Board::getBugAmount() {
     return this->bugs.size();
 }
+void Board::getBugById(int inputId) {
+    bool bugFound = false;
+    for(auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
+        // Access the pointer to Bug object
+        Bug* bug = *it;
+        if(bug->getID() == inputId) {
+            cout << bug->toString();
+            bugFound = true;
+        }
+    }
+    if(!bugFound) {
+        cout << "Bug " << inputId << " was not found." << endl;
+    }
+
+}
+
 //// Setters
 void Board::updateBoardState(bool isInitialized) {
     if(isInitialized == false) // if the passed parameter is false, clear the bugs vector for new bugs
