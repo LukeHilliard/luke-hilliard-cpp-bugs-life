@@ -128,3 +128,13 @@ void Board::displayAllBugs() {
         }
     }
 }
+
+//// Method to tap the bug board
+void Board::tapBugBoard() {
+    for (auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
+        Bug *bug = *it;
+//        cout << "Before: " << bug->toString() << endl;
+        bug->move();
+//        cout << "After: " << bug->toString() << endl;
+    }
+}

@@ -12,6 +12,45 @@ Hopper::Hopper(int id, pair<int, int> position, Direction direction, int size, b
     this->hopLength = hopLength;
 }
 void Hopper::move() {
+    pair<int, int> nextPosition = this->position; // create a temporary position before setting actual position
+
+    // handle next position based on direction
+    if(Hopper::getDirection() == Direction::NORTH) {
+        nextPosition.second -= this->hopLength;
+    }
+    else if(Hopper::getDirection() == Direction::EAST) {
+        nextPosition.first += this->hopLength;
+    }
+    else if(Hopper::getDirection() == Direction::SOUTH) {
+        nextPosition.second += this->hopLength;
+    }
+    else if(Hopper::getDirection() == Direction::WEST) {
+        nextPosition.first -= this->hopLength;
+    }
+
+    // check if the next position generated is within bounds
+    if(!isWayBlocked(nextPosition)) { // if the next position generated is out of bounds
+        while(!isWayBlocked(nextPosition)) {
+            //cout << "WAY IS BLOCKED\nPOSITION=" << position.first << "," << position.second << endl;
+            this->direction = static_cast<Direction>(rand() % 4 + 1);
+
+            // handle next position based on direction
+            if(Hopper::getDirection() == Direction::NORTH) {
+                nextPosition.second -= this->hopLength;
+            }
+            else if(Hopper::getDirection() == Direction::EAST) {
+                nextPosition.first += this->hopLength;
+            }
+            else if(Hopper::getDirection() == Direction::SOUTH) {
+                nextPosition.second += this->hopLength;
+            }
+            else if(Hopper::getDirection() == Direction::WEST) {
+                nextPosition.first -= this->hopLength;
+            }
+        }
+    } else {
+        position = nextPosition;
+    }
 
 }
 
