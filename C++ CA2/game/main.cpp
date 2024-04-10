@@ -1,47 +1,49 @@
 #include "main.h"
 
 int main() {
-    map<int, func> menuOptions;
-
-    // TODO add calls to methods for each menu option
-    menuOptions[1] = initializeBugBoard;
-    menuOptions[2] = displayAllBugs;
-//    menuOptions[3] = ;
-//    menuOptions[4] = ;
-//    menuOptions[5] = ;
-//    menuOptions[6] = ;
-//    menuOptions[7] = ;
-//    menuOptions[8] = ;
-
-    int choice = 0;
-    string temp;
-    do {
-        cout << "+----------* Bugs Life *----------+" << endl;
-        // display main menu to user, shows all options they can select from
+    int choice;
+    bool exit = false;
+    Board* board = new Board();
+    do{
         displayMenu();
-
-        cout << "Please enter an option from the menu (-1 to end): ";
         cin >> choice;
-        getline(cin, temp);
-        cout << endl;
+        switch(choice) {
+            case 1: {
+                board->initializeBugBoard();
+                break;
+            }
+            case 2: {
+                board->displayAllBugs();
+                break;
+            }
+            case 3: {
 
-        // checks if choice exists as a key in menuOptions, if true call method from that key
-        if(menuOptions.count(choice))
-        {
-            menuOptions[choice]();
+            }
+            case 4: {
+
+            }
+            case 5: {
+
+            }
+            case 6: {
+
+            }
+            case 7: {
+
+            }
+            case -1: {
+                cout << "\n\nProgram ending..." << endl;
+                exit = true;
+            }
         }
-        // if program has reached this branch and input is not -1, it must be invalid
-        else if(choice!=-1)
-        {
-            cout << "Invalid input, please select a corresponding number from the menu"<<endl;
-        }
-        cout << "\n";
-    }while(choice!=-1);
+
+    } while(!exit);
     return 0;
 }
 
 // Method to display all menu options to the user
 void displayMenu() {
+    cout << "----------*\tBugs Life\t*----------" << endl;
     cout << "\t  1. Initialise Bug Board\n";
     cout << "\t  2. Display all Bugs\n";
     cout << "\t  3. Find a Bug\n";
@@ -49,17 +51,9 @@ void displayMenu() {
     cout << "\t  5. Display Life History of all Bugs\n";
     cout << "\t  6. Display all Cells listing their bugs\n";
     cout << "\t  7. Run Simulation\n";
-    cout << "\t  8. Exit\n";
+    cout << "\t  -1. Exit\n";
 }
 
-void initializeBugBoard() {
-    Board* board = new Board();
-    board->initializeBugBoard();
-}
-
-void displayAllBugs() {
-
-}
 
 
 

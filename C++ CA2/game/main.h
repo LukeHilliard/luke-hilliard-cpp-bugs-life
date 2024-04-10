@@ -6,7 +6,7 @@
 #include "../bugs/Bug.h"
 #include "../bugs/Crawler.h"
 #include "../bugs/Hopper.h"
-#include "Board.h"
+#include "../game/Board.h"
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -14,9 +14,6 @@
 using namespace std;
 typedef void (*func)();
 
-void initializeBugBoard();
-void displayAllBugs();
 void displayMenu();
-void displayBoard();
-//void displayAddedBugs(const vector<Bug*>&);
+
 #endif //C_CA2_BUGSLIFE_H

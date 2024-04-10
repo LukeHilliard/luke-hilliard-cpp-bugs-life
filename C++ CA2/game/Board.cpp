@@ -3,6 +3,9 @@
 //
 
 #include "Board.h"
+Board::Board() {
+
+}
 //// Method to initialize bugs based on their type
 void Board::tokenizeInputStream(std::string line, char type) {
         string delimiter = ";";
@@ -77,3 +80,12 @@ void Board::initializeBugBoard() {
     }
     cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
 };
+
+void Board::displayAllBugs() {
+    cout << "---* Bugs in play *---" << endl;
+    for(auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
+        // Access the pointer to Bug object
+        Bug* bug = *it;
+        cout << bug->toString() << endl;
+    }
+}
