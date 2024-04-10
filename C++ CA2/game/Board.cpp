@@ -4,8 +4,25 @@
 
 #include "Board.h"
 Board::Board() {
-
+    this->isInitialized = false;
 }
+//// Getters
+bool Board::getBoardState() {
+    return this->isInitialized;
+}
+int Board::getBugAmount() {
+    return this->bugs.size();
+}
+//// Setters
+void Board::updateBoardState(bool isInitialized) {
+    if(isInitialized == false) // if the passed parameter is false, clear the bugs vector for new bugs
+        Board::bugs.clear();
+
+    this->isInitialized = isInitialized;
+}
+
+
+
 //// Method to initialize bugs based on their type
 void Board::tokenizeInputStream(std::string line, char type) {
         string delimiter = ";";
@@ -60,32 +77,40 @@ void Board::tokenizeInputStream(std::string line, char type) {
         }
     }
 
-//// Method to read in data from a file, split into different bug types and passed to tokenizer
+//// Method to read in data from a file, split into different bug types and passed to tokenizeInputStream
 void Board::initializeBugBoard() {
-    string line;
-    ifstream fin("bugs.txt");
-    if (fin) {
-        while (!fin.eof()) {
-            getline(fin, line);
-            char bugType = line[0]; // read the first character to get bug type {C = Crawler, H = Hopper}
-            if (bugType == 'C') {
-                tokenizeInputStream(line, bugType);
-            } else if (bugType == 'H') {
-                tokenizeInputStream(line, bugType);
+        string line;
+        ifstream fin("bugs.txt");
+        if (fin) {
+            while (!fin.eof()) {
+                getline(fin, line);
+                char bugType = line[0]; // read the first character to get bug type {C = Crawler, H = Hopper}
+                if (bugType == 'C') {
+                    tokenizeInputStream(line, bugType);
+                } else if (bugType == 'H') {
+                    tokenizeInputStream(line, bugType);
+                }
             }
+            fin.close();
+            Board::updateBoardState(true); // update board state once file has been fully loaded
+        } else {
+            cout << "error opening file." << endl;
         }
-        fin.close();
-    } else {
-        cout << "error opening file." << endl;
-    }
-    cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
+        cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
+
+
 };
 
+//// Method to display all bugs. Each bug type implements there own toString from Bug class
 void Board::displayAllBugs() {
-    cout << "---* Bugs in play *---" << endl;
-    for(auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
-        // Access the pointer to Bug object
-        Bug* bug = *it;
-        cout << bug->toString() << endl;
+    if(bugs.size() == 0) { // if there are no bugs in play
+        cout << "--* You need to initialize the bug board before you can display bugs *--" << endl;
+    } else {
+        cout << "------*\tBugs in play\t*------" << endl;
+        for(auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
+            // Access the pointer to Bug object
+            Bug* bug = *it;
+            cout << bug->toString() << endl;
+        }
     }
 }

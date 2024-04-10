@@ -15,6 +15,7 @@ using namespace std;
 class Board {
 private:
     vector<Bug *> bugs;
+    bool isInitialized;
 
 public:
     // Constructor
@@ -23,6 +24,13 @@ public:
     void initializeBugBoard();
     void tokenizeInputStream(string line, char type);
     void displayAllBugs();
+
+    //getters
+    bool getBoardState();
+    int getBugAmount();
+
+    // setters
+    void updateBoardState(bool);
 
 };
 
