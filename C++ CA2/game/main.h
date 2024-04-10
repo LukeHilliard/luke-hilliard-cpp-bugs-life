@@ -15,6 +15,7 @@ using namespace std;
 typedef void (*func)();
 
 void initializeBugBoard();
+void displayAllBugs();
 void displayMenu();
 void displayBoard();
 //void displayAddedBugs(const vector<Bug*>&);

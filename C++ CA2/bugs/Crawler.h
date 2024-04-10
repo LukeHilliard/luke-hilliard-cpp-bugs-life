@@ -11,32 +11,11 @@
 class Crawler : public Bug {
 
 public:
-    Crawler(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int> > path  ) {
-        this->id = id;
-        this->position = position;
-        this->direction = direction;
-        this->size = size;
-        this->alive = alive;
-        this->path = path;
-    }
-
-    Crawler() {}
-
-    string toString() {
-        string status;
-        if(alive)
-            status = "Alive";
-        else
-            status = "Dead";
-        return "| Crawler (" + to_string(id) + ") | " +
-                 "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") |  " +
-                 "Status: " + status + " | "
-                 "Size  : " + to_string(size) + " | " +
-                 "Facing: " + directionToString(direction) + " |\n";
-
-    }
+    Crawler(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path);
+    Crawler();
 
     virtual void move() override;
+    virtual string toString() override;
 };
 
 

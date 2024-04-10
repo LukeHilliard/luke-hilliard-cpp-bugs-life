@@ -5,7 +5,7 @@ int main() {
 
     // TODO add calls to methods for each menu option
     menuOptions[1] = initializeBugBoard;
-//    menuOptions[2] = ;
+    menuOptions[2] = displayAllBugs;
 //    menuOptions[3] = ;
 //    menuOptions[4] = ;
 //    menuOptions[5] = ;
@@ -55,6 +55,10 @@ void displayMenu() {
 void initializeBugBoard() {
     Board* board = new Board();
     board->initializeBugBoard();
+}
+
+void displayAllBugs() {
+
 }
 
 

@@ -20,6 +20,10 @@ protected:
 
 
     virtual void move() = 0;
+    virtual string toString() = 0;
     bool isWayBlocked();
+
+public:
+    string getDirection();
 };
 #endif //C_CA2_BUG_H
