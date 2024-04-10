@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Bug.cpp" "CMakeFiles/C___CA2.dir/Bug.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/Bug.cpp.o.d"
-  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Crawler.cpp" "CMakeFiles/C___CA2.dir/Crawler.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/Crawler.cpp.o.d"
-  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/Hopper.cpp" "CMakeFiles/C___CA2.dir/Hopper.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/Hopper.cpp.o.d"
-  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/main.cpp" "CMakeFiles/C___CA2.dir/main.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/main.cpp.o.d"
+  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Bug.cpp" "CMakeFiles/C___CA2.dir/bugs/Bug.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/bugs/Bug.cpp.o.d"
+  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Crawler.cpp" "CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/bugs/Crawler.cpp.o.d"
+  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/bugs/Hopper.cpp" "CMakeFiles/C___CA2.dir/bugs/Hopper.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/bugs/Hopper.cpp.o.d"
+  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/Board.cpp" "CMakeFiles/C___CA2.dir/game/Board.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/game/Board.cpp.o.d"
+  "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/C++ CA2/game/main.cpp" "CMakeFiles/C___CA2.dir/game/main.cpp.o" "gcc" "CMakeFiles/C___CA2.dir/game/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

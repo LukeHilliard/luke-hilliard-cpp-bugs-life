@@ -3,20 +3,17 @@
 //
 #ifndef C_CA2_BUGSLIFE_H
 #define C_CA2_BUGSLIFE_H
+#include "../bugs/Bug.h"
+#include "../bugs/Crawler.h"
+#include "../bugs/Hopper.h"
+#include "../game/Board.h"
 #include <iostream>
 #include <fstream>
 #include <map>
-#include "Bug.h"
-#include "Crawler.h"
-#include "Hopper.h"
 
 using namespace std;
 typedef void (*func)();
 
-
 void displayMenu();
-void initializeBugBoard();
-void tokenizeInputStream(string, char, vector<Bug*>&);
-void displayBoard();
-//void displayAddedBugs(const vector<Bug*>&);
+
 #endif //C_CA2_BUGSLIFE_H

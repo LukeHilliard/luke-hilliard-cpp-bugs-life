@@ -3,11 +3,10 @@
 //
 #ifndef C_CA2_BUG_H
 #define C_CA2_BUG_H
+#include "Direction.h"
 #include <utility>
 #include <list>
 using namespace std;
-
-enum Direction {NORTH = 1, EAST = 2, SOUTH = 3, WEST = 4};
 
 class Bug {
 protected:
@@ -22,5 +21,9 @@ protected:
 
     virtual void move() = 0;
     bool isWayBlocked();
+
+public:
+    string getDirection();
+    virtual string toString() = 0;
 };
 #endif //C_CA2_BUG_H
