@@ -74,7 +74,7 @@ void Board::tokenizeInputStream(std::string line, char type) {
         switch (type) {
             case 'C': {
                 // create new Crawler object from the heap
-                Crawler *crawler = new Crawler(id, position, direction, size, true, path);
+                Crawler *crawler = new Crawler(id, "Crawler", position, direction, size, true, path);
                 bugs.push_back(crawler);
                 cout << "Crawler added to the arena!\n";
                 cout << crawler->toString() << endl;
@@ -82,7 +82,7 @@ void Board::tokenizeInputStream(std::string line, char type) {
             }
             case 'H': {
                 // create new Hopper object from the heap
-                Hopper *hopper = new Hopper(id, position, direction, size, true, path, hopLength);
+                Hopper *hopper = new Hopper(id, "Hopper", position, direction, size, true, path, hopLength);
                 bugs.push_back(hopper);
                 cout << "Hopper added to the arena!\n";
                 cout << hopper->toString() << endl;
@@ -133,8 +133,8 @@ void Board::displayAllBugs() {
 void Board::tapBugBoard() {
     for (auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
         Bug *bug = *it;
-//        cout << "Before: " << bug->toString() << endl;
+        cout << "(Before move)Bug: "<< bug->getID() << " : was at position " << bug->getPosition() << "\n";
         bug->move();
-//        cout << "After: " << bug->toString() << endl;
+        cout << "(After move)Bug: "<< bug->getID() << " : was at position " << bug->getPosition() << "\n";
     }
 }

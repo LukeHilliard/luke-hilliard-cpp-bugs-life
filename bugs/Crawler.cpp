@@ -3,8 +3,9 @@
 //
 
 #include "Crawler.h"
-Crawler::Crawler(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path) {
+Crawler::Crawler(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path) {
     this->id = id;
+    this->name = name;
     this->position = position;
     this->direction = direction;
     this->size = size;
@@ -59,7 +60,7 @@ string Crawler::toString()  {
         status = "Alive";
     else
         status = "Dead";
-    return "| Crawler (" + to_string(id) + ") | " +
+    return "| " + this->name + " (" + to_string(id) + ") | " +
            "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
            "Status: " + status + " | "
            "Size  : " + to_string(size) + " | " +

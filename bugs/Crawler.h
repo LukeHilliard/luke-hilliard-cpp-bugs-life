@@ -11,7 +11,7 @@
 class Crawler : public Bug {
 
 public:
-    Crawler(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path);
+    Crawler(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path);
     Crawler();
 
     virtual void move() override;

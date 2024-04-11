@@ -7,6 +7,7 @@
 
 //// Getters
 int Bug::getID() {return this->id;}
+string Bug::getPosition(){return "(" + to_string(this->position.first) + ", " + to_string(this->position.second) + ")";}
 
 Direction Bug::getDirection() {return this->direction;}
 

@@ -10,7 +10,9 @@ using namespace std;
 
 class Bug {
 protected:
+
     int id;
+    string name;
     pair<int, int> position;
     Direction direction;
     int size;
@@ -20,8 +22,11 @@ protected:
 public:
     virtual void move() = 0;
     bool isWayBlocked(pair<int, int>);
-    Direction getDirection();
     virtual string toString() = 0;
+
+    // getters
     int getID();
+    Direction getDirection();
+    string getPosition();
 };
 #endif //C_CA2_BUG_H

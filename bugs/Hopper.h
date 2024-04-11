@@ -11,7 +11,7 @@ class Hopper:public Bug {
 protected:
     int hopLength;
 public :
-    Hopper(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path, int hopLength);
+    Hopper(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path, int hopLength);
     Hopper() {}
 
     virtual void move() override;
