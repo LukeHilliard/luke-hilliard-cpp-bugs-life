@@ -16,6 +16,8 @@ public:
 
     virtual void move() override;
     virtual string toString() override;
+    virtual void setPath(pair<int, int>) override;
+    virtual void writeNextPositionToFile(list<pair<int, int>>) override;
 };
 
 

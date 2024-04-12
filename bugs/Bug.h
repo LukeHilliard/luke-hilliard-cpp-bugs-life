@@ -10,7 +10,6 @@ using namespace std;
 
 class Bug {
 protected:
-
     int id;
     string name;
     pair<int, int> position;
@@ -21,12 +20,19 @@ protected:
 
 public:
     virtual void move() = 0;
-    bool isWayBlocked(pair<int, int>);
     virtual string toString() = 0;
+    virtual void setPath(pair<int, int> path) = 0;
+    virtual void writeNextPositionToFile(list<pair<int, int>>) = 0;
+
+    bool isWayBlocked(pair<int, int>);
+    Direction getNewDirection();
 
     // getters
     int getID();
+    string getName();
     Direction getDirection();
-    string getPosition();
+    list<pair<int, int>> getPath();
+    pair<int, int> getPosition();
+    string getPositionString();
 };
 #endif //C_CA2_BUG_H
