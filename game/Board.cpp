@@ -3,14 +3,11 @@
 //
 
 #include "Board.h"
-Board::Board() {
-    this->isInitialized = false;
-}
+Board::Board() {this->isInitialized = false;}
+
 //// Getters
 bool Board::getBoardState() {return this->isInitialized;}
-int Board::getBugAmount() {
-    return this->bugs.size();
-}
+int Board::getBugAmount() {return this->bugs.size();}
 void Board::getBugById(int inputId) {
     bool bugFound = false;
     for(auto it = this->bugs.begin(); it != this->bugs.end(); it++) {
@@ -161,9 +158,11 @@ void Board::displayAllBugs() {
         }
     }
 }
+
+//// Method to display the board
 void Board::displayBoard() {
     // Print top border
-    std::cout << "+------------+" << std::endl;
+    std::cout << "+---------------------+" << std::endl;
 
     // Print rows
     for (int i = 0; i < 10; ++i) {
@@ -181,9 +180,27 @@ void Board::displayBoard() {
         }
         std::cout << "|" << std::endl;
     }
-
     // Print bottom border
-    std::cout << "+------------+" << std::endl;
+    std::cout << "+---------------------+" << std::endl;
+}
+
+//// Method to display all cells listing their bugs
+void Board::displayBoardAsTable() {
+    if(this->getBoardState()) {
+        cout << "Position   |    Holding" << endl;
+        for(int x = 0; x < 10; x++) {
+            for(int y = 0; y < 10; y++) {
+                Bug* bug = board[x][y];
+                if(bug != nullptr)  // if there is a bug there
+                    cout << "\t(" << x << ", " << y << ") | " << bug->getName() << " (" << bug->getID() << ")" << "Size:" << bug->getSize() << endl;
+                else
+                    cout <<"\t(" << x << ", " << y << ") | empty" << endl;
+            }
+        }
+        displayBoard();
+    } else {
+        cout << "---* You need to initialise the bug board before you can display the board *---" << endl;
+    }
 }
 
 //// Method to tap the bug board
@@ -195,8 +212,6 @@ void Board::tapBugBoard() {
         cout << "(After move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
     }
 }
-
-
 
 //// Method to display all bugs life history
 void Board::displayAllLifeHistory() {

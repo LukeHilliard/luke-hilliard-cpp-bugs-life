@@ -10,6 +10,7 @@
 //// Getters
 int Bug::getID() {return this->id;}
 string Bug::getName() {return this->name;}
+int Bug::getSize() {return this->size;}
 pair<int, int> Bug::getPosition() {return this->position;}
 string Bug::getPositionString(){return "(" + to_string(this->position.first) + ", " + to_string(this->position.second) + ")";}
 Direction Bug::getDirection() {return this->direction;}

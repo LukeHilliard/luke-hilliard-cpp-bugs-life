@@ -30,6 +30,7 @@ public:
     // getters
     int getID();
     string getName();
+    int getSize();
     Direction getDirection();
     list<pair<int, int>> getPath();
     pair<int, int> getPosition();

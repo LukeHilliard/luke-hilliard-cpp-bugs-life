@@ -27,6 +27,7 @@ public:
     void tokenizeInputStream(string line, char type);
     void displayAllBugs();
     void displayBoard();
+    void displayBoardAsTable();
     void tapBugBoard();
     void displayAllLifeHistory();
     void endGame();
