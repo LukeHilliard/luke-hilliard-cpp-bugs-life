@@ -38,7 +38,7 @@ void Board::updateBoardState(bool isInitialized) {
 
 
 //// Method to initialize bugs based on their type
-//// Spliting strings inspired from https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/ - Method 2: Using C++ find() and substr() APIs.
+//// Splitting strings inspired from https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/ - Method 2: Using C++ find() and substr() APIs.
 void Board::tokenizeInputStream(std::string line, char type) {
     bool flagPositionOutOfBounds = false;
     string delimiter = ";";
@@ -101,6 +101,21 @@ void Board::tokenizeInputStream(std::string line, char type) {
     }
 }
 
+//// Method to place bug onto the board
+void Board::placeBugsOnBoard() {
+    for(auto iter = this->bugs.begin(); iter != this-> bugs.end(); iter++) {
+        Bug* bug = *iter; // dereference bug from iter
+        int x = bug->getPosition().first;
+        int y = bug->getPosition().second;
+
+        if (this->board[x][y] == nullptr) { // Check if the position is not occupied by another bug
+            this->board[x][y] = bug; // place pointer to bug on board
+        } else {
+            cout << "Cannot place Bug " << bug->getID() << " because there is a bug there already." << endl;
+        }
+
+    }
+}
 //// Method to read in data from a file, split into different bug types and passed to tokenizeInputStream
 void Board::initializeBugBoard() {
         string line;
@@ -127,35 +142,12 @@ void Board::initializeBugBoard() {
         } else {
             cout << "error opening file." << endl;
         }
+        placeBugsOnBoard();
         cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
 
 
 };
 
-
-//// Method to place bug onto the board
-void Board::placeBugOnBoard(Bug* bug) {
-    vector<pair<int, int>> occupiedPositions;
-    int x = bug->getPosition().first;
-    int y = bug->getPosition().second;
-    bool isOccupied = false;
-    occupiedPositions.push_back(bug->getPosition());
-
-    if (){
-        if (board[x][y] != nullptr) {
-            // Check if the position is not occupied by another bug
-            bool isOccupied = false;
-            for (const auto &position: occupiedPositions) {
-                if (position == std::make_pair(x, y)) {
-                    isOccupied = true;
-                    break;
-                }
-            }
-        } else {
-            cout << "Cannot place Bug " << bug->getID() << " because there is a bug there already." << endl;
-        }
-    }
-}
 //// Method to display all bugs. Each bug type implements there own toString from Bug class
 void Board::displayAllBugs() {
     if(bugs.size() == 0) { // if there are no bugs in play
@@ -168,6 +160,30 @@ void Board::displayAllBugs() {
             cout << bug->toString() << endl;
         }
     }
+}
+void Board::displayBoard() {
+    // Print top border
+    std::cout << "+------------+" << std::endl;
+
+    // Print rows
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "| ";
+        for (int j = 0; j < 10; ++j) {
+            if (board[i][j] != nullptr) {
+                if (dynamic_cast<Crawler*>(board[i][j]) != nullptr) {
+                    std::cout << "C ";
+                } else if (dynamic_cast<Hopper*>(board[i][j]) != nullptr) {
+                    std::cout << "H ";
+                }
+            } else {
+                std::cout << ". ";
+            }
+        }
+        std::cout << "|" << std::endl;
+    }
+
+    // Print bottom border
+    std::cout << "+------------+" << std::endl;
 }
 
 //// Method to tap the bug board

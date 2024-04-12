@@ -70,7 +70,7 @@ int main() {
                 break;
             }
             case 6: {
-
+                board->displayBoard();
             }
             case 7: {
 

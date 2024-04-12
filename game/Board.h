@@ -23,9 +23,10 @@ public:
     Board();
 
     void initializeBugBoard();
-    void placeBugOnBoard(Bug*);
+    void placeBugsOnBoard();
     void tokenizeInputStream(string line, char type);
     void displayAllBugs();
+    void displayBoard();
     void tapBugBoard();
     void displayAllLifeHistory();
     void endGame();
