@@ -66,16 +66,18 @@ int main() {
                 break;
             }
             case 5: {
-
+                board->displayAllLifeHistory();
+                break;
             }
             case 6: {
-
+                board->displayBoardAsTable();
+                break;
             }
             case 7: {
 
             }
-            case -1: {
-                cout << "\n\nProgram ending..." << endl;
+            case 8: {
+                board->endGame();
                 exit = true;
             }
         }
@@ -94,7 +96,7 @@ void displayMenu() {
     cout << "\t  5. Display Life History of all Bugs\n";
     cout << "\t  6. Display all Cells listing their bugs\n";
     cout << "\t  7. Run Simulation\n";
-    cout << "\t  -1. Exit\n";
+    cout << "\t  8. Exit\n";
 }
 
 

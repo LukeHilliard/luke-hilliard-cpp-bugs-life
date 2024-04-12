@@ -8,14 +8,16 @@
 #include <string>
 
 class Hopper:public Bug {
-protected:
+private:
     int hopLength;
 public :
-    Hopper(int id, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path, int hopLength);
+    Hopper(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path, int hopLength);
     Hopper() {}
 
     virtual void move() override;
     virtual string toString() override;
+    virtual void setPath(pair<int, int>) override;
+    virtual void writeNextPositionToFile(list<pair<int, int>>) override;
 
 };
 

@@ -15,6 +15,7 @@ using namespace std;
 class Board {
 private:
     vector<Bug *> bugs;
+    Bug* board[10][10]; // 2D array representing the board, holds pointers to Bug objects
     bool isInitialized;
 
 public:
@@ -22,9 +23,14 @@ public:
     Board();
 
     void initializeBugBoard();
+    void placeBugsOnBoard();
     void tokenizeInputStream(string line, char type);
     void displayAllBugs();
+    void displayBoard();
+    void displayBoardAsTable();
     void tapBugBoard();
+    void displayAllLifeHistory();
+    void endGame();
 
     //getters
     bool getBoardState();
@@ -33,6 +39,7 @@ public:
 
     // setters
     void updateBoardState(bool);
+
 
 };
 
