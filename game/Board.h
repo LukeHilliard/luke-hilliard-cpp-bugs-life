@@ -32,9 +32,11 @@ public:
 
     // Actions towards the board
     void tokenizeInputStream(string line, char type);
-    void placeBugsOnBoard();
     void initializeBugBoard();
+    void placeBugsOnBoard();
+    void eatBug(Bug *&bugToEat);
     void tapBugBoard();
+    void runSimulation();
     void endGame();
 
     // Display functions

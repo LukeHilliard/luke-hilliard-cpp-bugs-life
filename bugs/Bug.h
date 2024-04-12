@@ -35,5 +35,6 @@ public:
 
     bool isWayBlocked(pair<int, int>);
     Direction getNewDirection();
-}
+    pair<int, int> setPosition();
+};
 #endif //C_CA2_BUG_H

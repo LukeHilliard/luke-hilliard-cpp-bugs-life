@@ -96,20 +96,6 @@ void Board::tokenizeInputStream(std::string line, char type) {
     }
 }
 
-//// Method to place bug onto the board
-void Board::placeBugsOnBoard() {
-    for(auto iter = this->bugs.begin(); iter != this-> bugs.end(); iter++) {
-        Bug* bug = *iter; // dereference bug from iter
-        int x = bug->getPosition().first;
-        int y = bug->getPosition().second;
-
-        if (this->board[x][y] == nullptr) { // Check if the position is not occupied by another bug
-            this->board[x][y] = bug; // place pointer to bug on board
-        } else {
-            cout << "Cannot place Bug " << bug->getID() << " because there is a bug there already." << endl;
-        }
-    }
-}
 //// Method to read in data from a file, split into different bug types and passed to tokenizeInputStream
 void Board::initializeBugBoard() {
         string line;
@@ -141,13 +127,79 @@ void Board::initializeBugBoard() {
         cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
 }
 
-//// Method to tap the bug board
+
+//// Method to place bug onto the board
+void Board::placeBugsOnBoard() {
+    for(auto iter = this->bugs.begin(); iter != this-> bugs.end(); iter++) {
+        Bug* bug = *iter; // dereference bug from iter
+        int x = bug->getPosition().first;
+        int y = bug->getPosition().second;
+
+        if (this->board[x][y] == nullptr) { // Check if the position is not occupied by another bug
+            this->board[x][y] = bug; // place pointer to bug on board
+        } else {
+            cout << "Cannot place Bug " << bug->getID() << " because there is a bug there already." << endl;
+        }
+    }
+}
+
+//// Helper method for tapBugBoard to remove bugs from the board if they land on the same position
+void Board::eatBug(Bug *& bugToEat) {
+    // remove followed from https://cplusplus.com/reference/algorithm/remove_if/
+    bool killBug = false;
+    for(auto iter = this->bugs.begin(); iter != bugs.end(); iter++) {
+        Bug* b = *iter;
+        if (bugToEat->getID() == b->getID()) {
+            killBug = true;
+            cout << bugToEat->getID() << " was eaten" << endl;
+        }
+        if(killBug)
+            break;
+    }
+    if(killBug) // remove bug from bugs_vector
+        bugs.erase(std::remove(bugs.begin(), bugs.end(), bugToEat), bugs.end());
+
+}
+//// Method to simulate tapping the bug board, calls move method implemented in each Bug class
 void Board::tapBugBoard() {
     for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-        Bug *bug = *iter;
-        cout << "(Before move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
-        bug->move();
-        cout << "(After move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
+        // dereference two bugs from iter, move opponent first and check if there is a bug in the position, if there is set Bug* from board = to opponent and fight
+        Bug* contender = *iter;
+        Bug* opponent = *iter;
+
+        opponent->move();
+        if(board[opponent->getPosition().first][opponent->getPosition().second] != nullptr) {
+            // store the position the two bugs are fighting on, the winner will stay and move on from here
+            pair<int, int> winnersNewPosition = {opponent->getPosition().first, opponent->getPosition().second};
+
+            opponent = board[opponent->getPosition().first][opponent->getPosition().second]; // opponent = bug on position already
+            if(contender->getSize() > opponent->getSize()) {
+                this->eatBug(opponent); // contender eats opponent
+            }
+            else if(contender->getSize() < opponent->getSize()) {
+                this->eatBug(contender); // opponent eats contender
+            }
+
+            // both bugs are the same size, a random number from 1-10 is generated, if it is even contender wins, odd opponent wins
+            else {
+                int decider = (rand() % 10 + 1);
+                if(decider % 2 == 0) { // contender wins
+                    this->eatBug(opponent);
+                } else {
+                    this->eatBug(contender); // opponent wins
+                }
+            }
+        }
+    }
+//        cout << "(Before move)Bug: " << contender->getID() << " : was at position " << contender->getPositionString() << "\n";
+//        contender->move();
+//        cout << "(After move)Bug: " << contender->getID() << " : was at position " << contender->getPositionString() << "\n";
+}
+
+//// Method to run simulation
+void Board::runSimulation() {
+    while(this->bugs.size() > 1) { // loop until 1 bug remains
+        
     }
 }
 
