@@ -5,12 +5,14 @@ int main() {
     bool exit = false;
     bool boardIsInitialized;
 
-    Board* board = new Board();
+    Board* board = new Board(); // initialize board
     do{
-        boardIsInitialized = board->getBoardState();
+        boardIsInitialized = board->getBoardState();// check board state after every time loop
         displayMenu();
-        cin >> choice;
+        cin >> choice; // assuming choice is an integer
         switch(choice) {
+
+            // Initialize Bug Board
             case 1: {
                 if(!boardIsInitialized) {// if the board is not initialized, initialize it
                     board->initializeBugBoard();
@@ -27,10 +29,14 @@ int main() {
                     break;
                 }
             }
+
+            // Display all Bugs
             case 2: {
                 board->displayAllBugs();
                 break;
             }
+
+            // Find a Bug by ID
             case 3: {
                 while(true) { // Infinite loop until user wants to return to main menu
                     bool isValid = false;
@@ -61,24 +67,33 @@ int main() {
                 }
                 break;
             }
+
+            // Tap the Bug Board
             case 4: {
                 board->tapBugBoard();
                 break;
             }
+            // Display Life History of all Bugs
             case 5: {
                 board->displayAllLifeHistory();
                 break;
             }
+            // Display all Cells listing their Bugs
             case 6: {
                 board->displayBoardAsTable();
                 break;
             }
+            // Run Simulation
             case 7: {
-
+                //TODO runSimulation
             }
+            // End Game
             case 8: {
                 board->endGame();
                 exit = true;
+            }
+            default: {
+                cout << "* Invalid input, select a corresponding number from the menu *\n" << endl;
             }
         }
 

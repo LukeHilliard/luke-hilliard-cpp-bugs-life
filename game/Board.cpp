@@ -26,10 +26,9 @@ void Board::getBugById(int inputId) {
 
 //// Setters
 void Board::updateBoardState(bool isInitialized) {
-    if(isInitialized == false) // if the passed parameter is false, clear the bugs vector for new bugs
-        Board::bugs.clear();
-    //TODO  clear memory
-
+    if(!isInitialized) {// if the passed parameter is false, clear the memory for new bugs
+      this->bugs.clear();
+    }
     this->isInitialized = isInitialized;
 }
 
@@ -52,7 +51,6 @@ void Board::tokenizeInputStream(std::string line, char type) {
         // find the position of the next delimiter in the string, starting the search from 'start'
         end = line.find(delimiter, start);
         // If the delimiter is not found, substr extracts until the end of the string
-
         string attribute = line.substr(start, end - start);
 
         attributes.push_back(attribute);
@@ -110,7 +108,6 @@ void Board::placeBugsOnBoard() {
         } else {
             cout << "Cannot place Bug " << bug->getID() << " because there is a bug there already." << endl;
         }
-
     }
 }
 //// Method to read in data from a file, split into different bug types and passed to tokenizeInputStream
@@ -139,11 +136,29 @@ void Board::initializeBugBoard() {
         } else {
             cout << "error opening file." << endl;
         }
+
         placeBugsOnBoard();
         cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
+}
 
+//// Method to tap the bug board
+void Board::tapBugBoard() {
+    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+        Bug *bug = *iter;
+        cout << "(Before move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
+        bug->move();
+        cout << "(After move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
+    }
+}
 
-};
+//// Method to end game and write path history to file
+void Board::endGame() {
+    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+        Bug *bug = *iter;
+        cout << "Writing bug life history..." << endl;
+        bug->writeLifeHistory(bug->getPath());
+    }
+}
 
 //// Method to display all bugs. Each bug type implements there own toString from Bug class
 void Board::displayAllBugs() {
@@ -156,60 +171,6 @@ void Board::displayAllBugs() {
             Bug* bug = *iter;
             cout << bug->toString() << endl;
         }
-    }
-}
-
-//// Method to display the board
-void Board::displayBoard() {
-    // Print top border
-    std::cout << "+---------------------+" << std::endl;
-
-    // Print rows
-    for (int i = 0; i < 10; ++i) {
-        std::cout << "| ";
-        for (int j = 0; j < 10; ++j) {
-            if (board[i][j] != nullptr) {
-                if (dynamic_cast<Crawler*>(board[i][j]) != nullptr) {
-                    std::cout << "C ";
-                } else if (dynamic_cast<Hopper*>(board[i][j]) != nullptr) {
-                    std::cout << "H ";
-                }
-            } else {
-                std::cout << ". ";
-            }
-        }
-        std::cout << "|" << std::endl;
-    }
-    // Print bottom border
-    std::cout << "+---------------------+" << std::endl;
-}
-
-//// Method to display all cells listing their bugs
-void Board::displayBoardAsTable() {
-    if(this->getBoardState()) {
-        cout << "Position   |    Holding" << endl;
-        for(int x = 0; x < 10; x++) {
-            for(int y = 0; y < 10; y++) {
-                Bug* bug = board[x][y];
-                if(bug != nullptr)  // if there is a bug there
-                    cout << "\t(" << x << ", " << y << ") | " << bug->getName() << " (" << bug->getID() << ")" << "Size:" << bug->getSize() << endl;
-                else
-                    cout <<"\t(" << x << ", " << y << ") | empty" << endl;
-            }
-        }
-        displayBoard();
-    } else {
-        cout << "---* You need to initialise the bug board before you can display the board *---" << endl;
-    }
-}
-
-//// Method to tap the bug board
-void Board::tapBugBoard() {
-    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-        Bug *bug = *iter;
-        cout << "(Before move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
-        bug->move();
-        cout << "(After move)Bug: "<< bug->getID() << " : was at position " << bug->getPositionString() << "\n";
     }
 }
 
@@ -231,12 +192,49 @@ void Board::displayAllLifeHistory() {
     }
 }
 
-//// Method to end game and write path history to file
-    void Board::endGame() {
-        for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-            Bug *bug = *iter;
-            cout << "Writing bug life history..." << endl;
-            bug->writeNextPositionToFile(bug->getPath());
-        }
+//// Method to display the board
+void Board::displayBoard() {
+    // Print top border
+    cout << "+---------------------+" << endl;
 
+    // Print rows
+    for (int i = 0; i < 10; ++i) {
+        cout << "| ";
+        for (int j = 0; j < 10; ++j) {
+            if (board[i][j] != nullptr) {
+                if (dynamic_cast<Crawler*>(board[i][j]) != nullptr) { // if bug is type crawler
+                    cout << "C ";
+                } else if (dynamic_cast<Hopper*>(board[i][j]) != nullptr) { // if bug is type hopper
+                    cout << "H ";
+                }
+            } else {
+                cout << ". ";
+            }
+        }
+        cout << "|" << endl;
     }
+    // Print bottom border
+    cout << "+---------------------+" << endl;
+}
+
+//// Method to display all cells listing their bugs
+void Board::displayBoardAsTable() {
+    if(this->getBoardState()) {
+        cout << "Position   |    Holding" << endl;
+        for(int x = 0; x < 10; x++) {
+            for(int y = 0; y < 10; y++) {
+                Bug* bug = board[x][y];
+                if(bug != nullptr)  // if there is a bug there
+                    cout << "\t(" << x << ", " << y << ") | " << bug->getName() << " (" << bug->getID() << ")" << "Size:" << bug->getSize() << endl;
+                else
+                    cout <<"\t(" << x << ", " << y << ") | empty" << endl;
+            }
+        }
+        displayBoard();
+    } else {
+        cout << "---* You need to initialise the bug board before you can display the board *---" << endl;
+    }
+}
+
+
+

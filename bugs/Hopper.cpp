@@ -62,8 +62,8 @@ void Hopper::move() {
 void Hopper::setPath(pair<int, int>  nextPosition) {
     this->path.push_back(nextPosition);
 }
-
-void Hopper::writeNextPositionToFile(list<pair<int, int>> path) {
+// Write the life history of an instance of bug to bugs_life_history_date_time.txt
+void Hopper::writeLifeHistory(list<pair<int, int>> path) {
     string LIFE_HISTORY;
 
     ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
@@ -73,7 +73,6 @@ void Hopper::writeNextPositionToFile(list<pair<int, int>> path) {
         string id = to_string(this->id);
         string positionStr;
 
-
         // construct life history string
         LIFE_HISTORY = this->name + "(" + to_string(this->id) + ") | Moved " + to_string(this->path.size()) + " times - History: ";
         // add all paths to line
@@ -81,14 +80,11 @@ void Hopper::writeNextPositionToFile(list<pair<int, int>> path) {
             pair<int, int> nextPosition = *iter; // Dereference iter
             positionStr = "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
             LIFE_HISTORY += positionStr;
-
         }
         LIFE_HISTORY +=  " |";
         fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
         fout.close(); // close the file when we are finished.
-    }
-    else
-    {
+    } else {
         cout << "Unable to open file." <<endl;
     }
 }

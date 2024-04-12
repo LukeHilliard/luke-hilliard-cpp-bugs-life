@@ -7,7 +7,6 @@
 #include "Direction.h"
 #include <string>
 
-
 class Crawler : public Bug {
 
 public:
@@ -15,9 +14,9 @@ public:
     Crawler();
 
     virtual void move() override;
-    virtual string toString() override;
     virtual void setPath(pair<int, int>) override;
-    virtual void writeNextPositionToFile(list<pair<int, int>>) override;
+    virtual void writeLifeHistory(list<pair<int, int>>) override;
+    virtual string toString() override;
 };
 
 

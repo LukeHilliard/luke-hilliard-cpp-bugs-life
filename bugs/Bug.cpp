@@ -4,7 +4,6 @@
 
 #include "Bug.h"
 #include <iostream>
-#include <fstream>
 // creation of classes in c++ followed from: https://www.w3schools.com/cpp/cpp_classes.asp
 
 //// Getters
@@ -27,12 +26,6 @@ bool Bug::isWayBlocked(pair<int, int> position) {
 Direction Bug::getNewDirection() {
     return static_cast<Direction>(rand() % 4 + 1);
 }
-
-
-
-
-
-
 
 /* stop bugs from going up/down over and over
         Increasing x moves you south (down)

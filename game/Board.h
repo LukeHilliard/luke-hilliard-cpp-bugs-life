@@ -22,16 +22,6 @@ public:
     // Constructor
     Board();
 
-    void initializeBugBoard();
-    void placeBugsOnBoard();
-    void tokenizeInputStream(string line, char type);
-    void displayAllBugs();
-    void displayBoard();
-    void displayBoardAsTable();
-    void tapBugBoard();
-    void displayAllLifeHistory();
-    void endGame();
-
     //getters
     bool getBoardState();
     int getBugAmount();
@@ -39,6 +29,21 @@ public:
 
     // setters
     void updateBoardState(bool);
+
+    // Actions towards the board
+    void tokenizeInputStream(string line, char type);
+    void placeBugsOnBoard();
+    void initializeBugBoard();
+    void tapBugBoard();
+    void endGame();
+
+    // Display functions
+    void displayAllBugs();
+    void displayAllLifeHistory();
+    void displayBoard();
+    void displayBoardAsTable();
+
+
 
 
 };
