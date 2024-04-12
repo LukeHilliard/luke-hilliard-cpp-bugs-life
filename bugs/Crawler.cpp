@@ -13,6 +13,8 @@ Crawler::Crawler(int id, string name, pair<int, int> position, Direction directi
     this->alive = alive;
     this->path = path;
 }
+
+//// move() derived from Bug, moves by 1 in the direction they are facing
 void Crawler::move() {
     this->path.push_back(this->position); // before moving add the previous position to history
 
@@ -37,7 +39,6 @@ void Crawler::move() {
     if(!isWayBlocked(nextPosition)) { // if the next position generated is out of bounds
         while(!isWayBlocked(nextPosition)) {
             this->direction = Crawler::getNewDirection();
-//            cout << directionToString(direction);
 
             // handle next position based on direction
             if(Crawler::getDirection() == Direction::NORTH) {
@@ -62,7 +63,8 @@ void Crawler::setPath(pair<int, int>  nextPosition) {
     this->path.push_back(nextPosition);
 }
 
-void Crawler::writeNextPositionToFile(list<pair<int, int>>) {
+//// Write the life history of an instance of bug to bugs_life_history_date_time.txt
+void Crawler::writeLifeHistory(list<pair<int, int>>) {
     string LIFE_HISTORY;
 
     ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
@@ -72,7 +74,6 @@ void Crawler::writeNextPositionToFile(list<pair<int, int>>) {
         string id = to_string(this->id);
         string positionStr;
 
-
         // construct life history string
         LIFE_HISTORY = this->name + "(" + to_string(this->id) + ") | Moved " + to_string(this->path.size()) + " times - History: ";
         // add all paths to line
@@ -80,18 +81,14 @@ void Crawler::writeNextPositionToFile(list<pair<int, int>>) {
             pair<int, int> nextPosition = *iter; // Dereference iter
             positionStr = "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
             LIFE_HISTORY += positionStr;
-
         }
         LIFE_HISTORY +=  " |";
         fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
         fout.close(); // close the file when we are finished.
-    }
-    else
-    {
+    } else {
         cout << "Unable to open file." <<endl;
     }
 }
-
 
 string Crawler::toString()  {
     string status;
