@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <thread>
 using namespace std;
 class Board {
 private:
@@ -37,6 +38,7 @@ public:
     void eatBug(Bug *&bugToEat);
     void tapBugBoard();
     void runSimulation();
+    void endGame(Bug*);
     void endGame();
 
     // Display functions

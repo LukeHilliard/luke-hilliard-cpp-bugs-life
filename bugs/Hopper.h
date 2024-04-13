@@ -16,6 +16,7 @@ public :
     Hopper() {}
 
     virtual void move() override;
+    virtual void move(pair<int, int>) override;
     virtual void setPath(pair<int, int>) override;
     virtual void writeLifeHistory(list<pair<int, int>>) override;
     virtual string toString() override;

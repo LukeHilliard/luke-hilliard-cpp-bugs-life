@@ -16,6 +16,9 @@ Direction Bug::getDirection() {return this->direction;}
 list<pair<int, int>> Bug::getPath() {return this->path;}
 
 
+//// Setters
+void Bug::setPosition(pair<int, int> newPosition) {this->position = newPosition;}
+
 //// Method to check if the current position is within bounds
 bool Bug::isWayBlocked(pair<int, int> position) {
     return position.first >= 0 && position.first <= 10 &&

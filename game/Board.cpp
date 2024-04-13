@@ -2,6 +2,7 @@
 // Created by Luke Hilliard on 09/04/2024.
 //
 
+
 #include "Board.h"
 Board::Board() {this->isInitialized = false;}
 
@@ -163,34 +164,32 @@ void Board::eatBug(Bug *& bugToEat) {
 //// Method to simulate tapping the bug board, calls move method implemented in each Bug class
 void Board::tapBugBoard() {
     for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-        // dereference two bugs from iter, move opponent first and check if there is a bug in the position, if there is set Bug* from board = to opponent and fight
         Bug* contender = *iter;
-        Bug* opponent = *iter;
 
-        opponent->move();
-        if(board[opponent->getPosition().first][opponent->getPosition().second] != nullptr) {
-            // store the position the two bugs are fighting on, the winner will stay and move on from here
-            pair<int, int> winnersNewPosition = {opponent->getPosition().first, opponent->getPosition().second};
+        // Store the original position of the contender bug
+        pair<int, int> originalPosition = contender->getPosition();
 
-            opponent = board[opponent->getPosition().first][opponent->getPosition().second]; // opponent = bug on position already
-            if(contender->getSize() > opponent->getSize()) {
-                this->eatBug(opponent); // contender eats opponent
-            }
-            else if(contender->getSize() < opponent->getSize()) {
-                this->eatBug(contender); // opponent eats contender
-            }
+        // Move the contender bug
+        contender->move();
 
-            // both bugs are the same size, a random number from 1-10 is generated, if it is even contender wins, odd opponent wins
-            else {
-                int decider = (rand() % 10 + 1);
-                if(decider % 2 == 0) { // contender wins
-                    this->eatBug(opponent);
-                } else {
-                    this->eatBug(contender); // opponent wins
-                }
+        // Check if there is another bug at the new position
+        if (board[contender->getPosition().first][contender->getPosition().second] != nullptr) {
+            // Get the bug at the new position
+            Bug* opponent = board[contender->getPosition().first][contender->getPosition().second];
+
+            // Check if both bugs have landed on the same position
+            if (originalPosition == opponent->getPosition()) {
+                cout << "Two bugs have landed on the same position: (" << originalPosition.first << ", " << originalPosition.second << ")" << endl;
+                // Handle the situation where bugs land on the same position
+                // You can implement your logic here, such as removing one of the bugs or triggering a fight
             }
         }
+
+        // Update the board with the contender bug's new position
+        board[originalPosition.first][originalPosition.second] = nullptr;
+        board[contender->getPosition().first][contender->getPosition().second] = contender;
     }
+
 //        cout << "(Before move)Bug: " << contender->getID() << " : was at position " << contender->getPositionString() << "\n";
 //        contender->move();
 //        cout << "(After move)Bug: " << contender->getID() << " : was at position " << contender->getPositionString() << "\n";
@@ -198,16 +197,27 @@ void Board::tapBugBoard() {
 
 //// Method to run simulation
 void Board::runSimulation() {
+    // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
     while(this->bugs.size() > 1) { // loop until 1 bug remains
-        
+        this->tapBugBoard();
+        displayBoard();
+        this_thread::sleep_for(chrono::seconds(1)); // stop execution on this thread for 1 second
     }
+    Bug* winner = bugs.at(0);
+    this->endGame(winner);
 }
 
-//// Method to end game and write path history to file
+//// Method to end game and write path history to file ** overloaded method
+void Board::endGame(Bug* winner) {
+    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+        Bug *bug = *iter;
+        bug->writeLifeHistory(bug->getPath());
+    }
+    cout << winner->getName() <<" (" << winner->getID() << ") is the last one standing." << endl;
+}
 void Board::endGame() {
     for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
         Bug *bug = *iter;
-        cout << "Writing bug life history..." << endl;
         bug->writeLifeHistory(bug->getPath());
     }
 }

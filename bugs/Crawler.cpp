@@ -16,8 +16,6 @@ Crawler::Crawler(int id, string name, pair<int, int> position, Direction directi
 
 //// move() derived from Bug, moves by 1 in the direction they are facing
 void Crawler::move() {
-    this->path.push_back(this->position); // before moving add the previous position to history
-
     pair<int, int> nextPosition = this->position; // create a temporary position before setting actual position
     this->direction = getNewDirection(); // generate a new random direction before moving
 
@@ -56,7 +54,15 @@ void Crawler::move() {
         }
     } else {
         this->position = nextPosition;
+        this->path.push_back(position);// add next position to path history
+
     }
+}
+
+//// overloaded move method, takes a position as a parameter and moves bug to that location on the board
+void Crawler::move(pair<int, int> nextPosition) {
+    this->position = nextPosition;
+    this->path.push_back(position); // add next position to path history
 }
 
 void Crawler::setPath(pair<int, int>  nextPosition) {
