@@ -193,12 +193,10 @@ void Board::fight(Bug* &bug1 , Bug* &bug2) {
                 bug2->increaseSize(bug1->getSize());
             }
         }
-        if (!bug1IsAlive) {// if bug1 lost
+        if (!bug1->isAlive()) {// if bug1 lost
             removeBugFromBoard(bug1);
             cout << bug2->getName() << " (" << bug2->getID() << ")" << " has won" << endl;
-        }
-
-        if (!bug2IsAlive) { // if bug2 lost
+        } else {
             removeBugFromBoard(bug2);
             cout << bug1->getName() << " (" << bug1->getID() << ")" << " has won" << endl;
         }
@@ -217,7 +215,6 @@ void Board::tapBugBoard() {
  *
  * placeBugsOnBoard
  */
-    updateBoard();
     displayBoard();
     for(auto moveBugs = this->bugs.begin(); moveBugs != this->bugs.end(); moveBugs++) {
         Bug* bug = *moveBugs;
@@ -243,6 +240,7 @@ void Board::tapBugBoard() {
             }
         }
     }
+    updateBoard();
 }
 
 //// Method to run simulation
