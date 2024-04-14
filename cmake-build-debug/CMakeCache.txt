@@ -14,6 +14,36 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+../_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+../_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+../_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+../luke-hilliard-cpp-bugs-life_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//The directory containing a CMake configuration file for ../luke-hilliard-cpp-bugs-life.
+../luke-hilliard-cpp-bugs-life_DIR:PATH=../luke-hilliard-cpp-bugs-life_DIR-NOTFOUND
+
+//Value Computed by CMake
+../luke-hilliard-cpp-bugs-life_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+../luke-hilliard-cpp-bugs-life_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+C++CA2_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+C++CA2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+C++CA2_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
 
@@ -157,7 +187,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=C___CA2
+CMAKE_PROJECT_NAME:STATIC=C__CA2
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/ranlib
@@ -225,6 +255,42 @@ CMAKE_TAPI:FILEPATH=/Library/Developer/CommandLineTools/usr/bin/tapi
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
+C__CA2$_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+C__CA2$_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+C__CA2$_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+C__CA2_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+C__CA2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+C__CA2_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+C__CA@_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+C__CA@_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+C__CA@_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+C__C_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+C__C_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+C__C_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
 C___CA2_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
 
 //Value Computed by CMake
@@ -233,8 +299,86 @@ C___CA2_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 C___CA2_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
 
+//Value Computed by CMake
+HelloSFML_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+HelloSFML_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+HelloSFML_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl
+
+//The directory containing a CMake configuration file for SFML.
+SFML_DIR:PATH=/opt/homebrew/lib/cmake/SFML
+
+//Path to a file.
+SFML_DOC_DIR:PATH=/opt/homebrew/share/doc/SFML
+
+//Value Computed by CMake
+SFML_SAMPLE_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+SFML_SAMPLE_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SFML_SAMPLE_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+SFML_Sample_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+SFML_Sample_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SFML_Sample_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+c__CA2_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+c__CA2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+c__CA2_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+c___BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+c___IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+c___SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+luke-hill_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+luke-hill_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+luke-hill_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+luke-hilliard-cpp-bugs-life_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+luke-hilliard-cpp-bugs-life_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+luke-hilliard-cpp-bugs-life_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
+
+//Value Computed by CMake
+sfml_002_BINARY_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug
+
+//Value Computed by CMake
+sfml_002_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+sfml_002_SOURCE_DIR:STATIC=/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life
 
 
 ########################
