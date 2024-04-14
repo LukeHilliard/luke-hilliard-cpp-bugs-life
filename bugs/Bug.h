@@ -6,6 +6,7 @@
 #include "Direction.h"
 #include <utility>
 #include <list>
+
 using namespace std;
 
 class Bug {
@@ -23,17 +24,25 @@ public:
     int getID();
     string getName();
     int getSize();
+    bool isAlive();
     pair<int, int> getPosition();
     string getPositionString();
     Direction getDirection();
     list<pair<int, int>> getPath();
 
-    virtual void move() = 0;
+    // setters
+    void setPosition(pair<int, int>);
+    void increaseSize(int);
+    void setAlive(bool);
+
+    virtual void move() = 0; // randomly move a bug
+    virtual void move(pair<int, int>) = 0; // overloaded move method to move a bug to a specific location
     virtual string toString() = 0;
     virtual void setPath(pair<int, int> path) = 0;
     virtual void writeLifeHistory(list<pair<int, int>>) = 0;
 
     bool isWayBlocked(pair<int, int>);
     Direction getNewDirection();
-}
+
+};
 #endif //C_CA2_BUG_H

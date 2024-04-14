@@ -11,12 +11,17 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <thread>
 using namespace std;
 class Board {
 private:
     vector<Bug *> bugs;
     Bug* board[10][10]; // 2D array representing the board, holds pointers to Bug objects
     bool isInitialized;
+    bool oneBugLeft;
+    int bugsAlive;
+    int boardX;
+    int boardY;
 
 public:
     // Constructor
@@ -32,9 +37,14 @@ public:
 
     // Actions towards the board
     void tokenizeInputStream(string line, char type);
-    void placeBugsOnBoard();
     void initializeBugBoard();
+    void placeBugsOnBoard();
+    void updateBoard();
+    void removeBugFromBoard(Bug*&);
+    void fight(Bug* &, Bug* &);
     void tapBugBoard();
+    void runSimulation();
+    void endGame(Bug*&);
     void endGame();
 
     // Display functions
@@ -43,14 +53,5 @@ public:
     void displayBoard();
     void displayBoardAsTable();
 
-
-
-
 };
-
-
-
-
-
-
 #endif //LUKE_HILLIARD_CPP_BUGS_LIFE_BOARD_H

@@ -14,49 +14,90 @@ Hopper::Hopper(int id, string name, pair<int, int> position, Direction direction
     this->hopLength = hopLength;
 }
 void Hopper::move() {
-    this->path.push_back(this->position); // before moving add the previous position to history
+    pair<int, int> nextPosition = this->position; // Create a temporary position before setting the actual position
 
-    pair<int, int> nextPosition = this->position; // create a temporary position before setting actual position
-    this->direction = getNewDirection(); // generate a new random direction before moving
+    // Randomize the length of time a bug stays in a certain direction
+    bool doRandomDirection = (rand() % 100 + 1) % 3 == 0; // 33% chance a bug will change direction
+    cout << "doRandomDirection on (" << this->id << ") ---> " << doRandomDirection << endl;
+    if (doRandomDirection)
+        this->direction = getNewDirection(); // Generate a new random direction before moving
 
-    // handle next position based on direction
-    if(Hopper::getDirection() == Direction::NORTH) {
-        nextPosition.second -= this->hopLength;
-    }
-    else if(Hopper::getDirection() == Direction::EAST) {
-        nextPosition.first += this->hopLength;
-    }
-    else if(Hopper::getDirection() == Direction::SOUTH) {
-        nextPosition.second += this->hopLength;
-    }
-    else if(Hopper::getDirection() == Direction::WEST) {
-        nextPosition.first -= this->hopLength;
+    cout << "Moving " << this->name << " (" << this->id << ") from position (" << nextPosition.first << ", " << nextPosition.second << ") to ";
+
+    // Handle the next position based on the direction
+    switch (this->direction) {
+        case Direction::NORTH:
+            nextPosition.second -= this->hopLength;
+            break;
+        case Direction::EAST:
+            nextPosition.first += this->hopLength;
+            break;
+        case Direction::SOUTH:
+            nextPosition.second += this->hopLength;
+            break;
+        case Direction::WEST:
+            nextPosition.first -= this->hopLength;
+            break;
     }
 
-    // check if the next position generated is within bounds
-    if(!isWayBlocked(nextPosition)) { // if the next position generated is out of bounds
-        while(!isWayBlocked(nextPosition)) {
-            //cout << "WAY IS BLOCKED\nPOSITION=" << position.first << "," << position.second << endl;
-            this->direction = Hopper::getNewDirection();
+    // Check if the next position generated is within bounds
+    if (!isWayBlocked(nextPosition)) { // If the next position generated is out of bounds
+        int badDirectionCount = 0;
+        Direction originalDirection = this->direction; // Store the original direction
+        bool newPathFound = false;
 
-            // handle next position based on direction
-            if(Hopper::getDirection() == Direction::NORTH) {
-                nextPosition.second -= this->hopLength;
+        do {
+            // Try a new direction
+            this->direction = getNewDirection();
+
+            // Calculate the next position based on the new direction
+            switch (this->direction) {
+                case Direction::NORTH:
+                    nextPosition.second -= this->hopLength;
+                    break;
+                case Direction::EAST:
+                    nextPosition.first += this->hopLength;
+                    break;
+                case Direction::SOUTH:
+                    nextPosition.second += this->hopLength;
+                    break;
+                case Direction::WEST:
+                    nextPosition.first -= this->hopLength;
+                    break;
             }
-            else if(Hopper::getDirection() == Direction::EAST) {
-                nextPosition.first += this->hopLength;
+
+            // Check if the new path is blocked
+            if (isWayBlocked(nextPosition)) {
+                newPathFound = true;
+                break;
             }
-            else if(Hopper::getDirection() == Direction::SOUTH) {
-                nextPosition.second += this->hopLength;
+
+            // Increment bad direction count
+            badDirectionCount++;
+
+            // Break if the hopper gets stuck in a loop of bad directions
+            if (badDirectionCount > 10000000) {
+                newPathFound = true;
+                break;
             }
-            else if(Hopper::getDirection() == Direction::WEST) {
-                nextPosition.first -= this->hopLength;
-            }
+        } while (!newPathFound);
+
+        if (!newPathFound) {
+//            cout << " * PATH BLOCKED > 10000000 *" << endl;
+//            return;
         }
-    } else {
-        position = nextPosition;
     }
 
+    // Move the hopper to the new position if the path is not blocked
+    cout << "(" << nextPosition.first << ", " << nextPosition.second << ")" << endl;
+    position = nextPosition;
+    this->path.push_back(position); // Add the next position to the path history
+}
+
+//// overloaded move method, takes a position as a parameter and moves bug to that location on the board
+void Hopper::move(pair<int, int> nextPosition) {
+    this->position = nextPosition;
+    this->path.push_back(position); // add next position to path history
 }
 
 void Hopper::setPath(pair<int, int>  nextPosition) {

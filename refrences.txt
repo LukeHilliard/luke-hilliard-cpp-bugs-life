@@ -1,3 +1,16 @@
-# Tokenize bugs.txt inspired taken from https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/
+# Tokenize bugs.txt inspired from https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/
 # Section - Method 2: Using C++ find() and substr() APIs.
 Used in Board.cpp within tokenizeInputStream(std::string line, char type)
+
+
+# Find an element within a vector followed from https://cplusplus.com/reference/algorithm/remove/
+Used in Board.cpp within void Board::eatBug(Bug *& bugToKill)
+
+# Using sleep_for to stop execution of a thread for 1 second from https://cplusplus.com/reference/thread/this_thread/sleep_for/
+Used in Board.cpp within void Board::runSimulation()
+
+
+H;104;1;5;1;7;3
+C;105;3;7;3;5
+H;106;5;3;2;9;2
+C;107;6;9;4;11

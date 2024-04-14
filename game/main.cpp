@@ -71,6 +71,7 @@ int main() {
             // Tap the Bug Board
             case 4: {
                 board->tapBugBoard();
+                board->displayBoard();
                 break;
             }
             // Display Life History of all Bugs
@@ -85,15 +86,18 @@ int main() {
             }
             // Run Simulation
             case 7: {
-                //TODO runSimulation
+                board->runSimulation();
+                break;
             }
             // End Game
             case 8: {
                 board->endGame();
                 exit = true;
+                break;
             }
             default: {
                 cout << "* Invalid input, select a corresponding number from the menu *\n" << endl;
+                break;
             }
         }
 
