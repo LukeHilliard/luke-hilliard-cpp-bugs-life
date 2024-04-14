@@ -251,7 +251,7 @@ void Board::runSimulation() {
     // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
     while(this->bugsAlive != 1) { // loop until 1 bug remains
         this->tapBugBoard();
-        this_thread::sleep_for(chrono::milliseconds (1000)); // stop execution on this thread for 1 second
+        this_thread::sleep_for(chrono::milliseconds (500)); // stop execution on this thread for 1 second
     }
     Bug* &winner = bugs.at(0);
     this->endGame(winner);

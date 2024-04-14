@@ -35,6 +35,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.27.8/CMakeCCompiler.cmake"
   "CMakeFiles/3.27.8/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.27.8/CMakeSystem.cmake"
+  "/opt/homebrew/lib/cmake/SFML/SFMLConfig.cmake"
+  "/opt/homebrew/lib/cmake/SFML/SFMLConfigDependencies.cmake"
+  "/opt/homebrew/lib/cmake/SFML/SFMLConfigVersion.cmake"
+  "/opt/homebrew/lib/cmake/SFML/SFMLSharedTargets-release.cmake"
+  "/opt/homebrew/lib/cmake/SFML/SFMLSharedTargets.cmake"
   )
 
 # The corresponding makefile is:
@@ -50,5 +55,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/C___CA2.dir/DependInfo.cmake"
+  "CMakeFiles/C__CA2.dir/DependInfo.cmake"
   )

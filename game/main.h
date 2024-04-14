@@ -7,6 +7,7 @@
 #include "../bugs/Crawler.h"
 #include "../bugs/Hopper.h"
 #include "../game/Board.h"
+#include "../game/BoardGUI.h"
 #include <iostream>
 #include <fstream>
 #include <map>

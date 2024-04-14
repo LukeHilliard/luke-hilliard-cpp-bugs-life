@@ -2,6 +2,126 @@
 	"entries" : 
 	[
 		{
+			"name" : "../_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "../_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "../_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "../luke-hilliard-cpp-bugs-life_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "../luke-hilliard-cpp-bugs-life_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for ../luke-hilliard-cpp-bugs-life."
+				}
+			],
+			"type" : "PATH",
+			"value" : "../luke-hilliard-cpp-bugs-life_DIR-NOTFOUND"
+		},
+		{
+			"name" : "../luke-hilliard-cpp-bugs-life_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "../luke-hilliard-cpp-bugs-life_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "C++CA2_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "C++CA2_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "C++CA2_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -140,6 +260,22 @@
 			],
 			"type" : "BOOL",
 			"value" : "ON"
+		},
+		{
+			"name" : "CMAKE_COLOR_MAKEFILE",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_COMMAND",
@@ -907,7 +1043,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C___CA2"
+			"value" : "C__CA2"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1206,6 +1342,150 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "C__CA2$_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "C__CA2$_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "C__CA2$_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "C__CA2_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "C__CA2_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "C__CA2_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "C__CA@_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "C__CA@_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "C__CA@_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "C__C_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "C__C_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "C__C_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
 			"name" : "C___CA2_BINARY_DIR",
 			"properties" : 
 			[
@@ -1242,6 +1522,42 @@
 			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
 		},
 		{
+			"name" : "HelloSFML_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "HelloSFML_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "HelloSFML_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
 			"name" : "ProcessorCount_cmd_sysctl",
 			"properties" : 
 			[
@@ -1256,6 +1572,282 @@
 			],
 			"type" : "FILEPATH",
 			"value" : "/usr/sbin/sysctl"
+		},
+		{
+			"name" : "SFML_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for SFML."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/homebrew/lib/cmake/SFML"
+		},
+		{
+			"name" : "SFML_DOC_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/opt/homebrew/share/doc/SFML"
+		},
+		{
+			"name" : "SFML_SAMPLE_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "SFML_SAMPLE_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "SFML_SAMPLE_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "SFML_Sample_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "SFML_Sample_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "SFML_Sample_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "c__CA2_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "c__CA2_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "c__CA2_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "c___BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "c___IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "c___SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "luke-hill_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "luke-hill_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "luke-hill_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "luke-hilliard-cpp-bugs-life_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "luke-hilliard-cpp-bugs-life_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "luke-hilliard-cpp-bugs-life_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
+		},
+		{
+			"name" : "sfml_002_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug"
+		},
+		{
+			"name" : "sfml_002_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "sfml_002_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life"
 		}
 	],
 	"kind" : "cache",

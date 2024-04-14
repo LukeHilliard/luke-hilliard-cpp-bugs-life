@@ -1,4 +1,5 @@
 #include "main.h"
+#include <SFML/Graphics.hpp>
 
 int main() {
     int choice;
@@ -11,6 +12,10 @@ int main() {
         displayMenu();
         cin >> choice; // assuming choice is an integer
         switch(choice) {
+            case 9: { //TESTING
+                BoardGUI* game = new BoardGUI();
+                game->run();
+            }
 
             // Initialize Bug Board
             case 1: {
@@ -95,6 +100,7 @@ int main() {
                 exit = true;
                 break;
             }
+
             default: {
                 cout << "* Invalid input, select a corresponding number from the menu *\n" << endl;
                 break;
@@ -108,6 +114,7 @@ int main() {
 //// Method to display all menu options to the user
 void displayMenu() {
     cout << "----------*\tBugs Life\t*----------" << endl;
+    cout << "\t  9. Test SFML\n";
     cout << "\t  1. Initialise Bug Board\n";
     cout << "\t  2. Display all Bugs\n";
     cout << "\t  3. Find a Bug\n";
