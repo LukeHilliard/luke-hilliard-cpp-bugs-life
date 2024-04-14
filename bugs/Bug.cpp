@@ -10,6 +10,7 @@
 int Bug::getID() {return this->id;}
 string Bug::getName() {return this->name;}
 int Bug::getSize() {return this->size;}
+bool Bug::isAlive() {return this->alive;}
 pair<int, int> Bug::getPosition() {return this->position;}
 string Bug::getPositionString(){return "(" + to_string(this->position.first) + ", " + to_string(this->position.second) + ")";}
 Direction Bug::getDirection() {return this->direction;}
@@ -18,11 +19,13 @@ list<pair<int, int>> Bug::getPath() {return this->path;}
 
 //// Setters
 void Bug::setPosition(pair<int, int> newPosition) {this->position = newPosition;}
+void Bug::increaseSize(int sizeToIncreaseBy) {this->size += sizeToIncreaseBy;}
+void Bug::setAlive(bool alive) {this->alive = alive;}
 
 //// Method to check if the current position is within bounds
 bool Bug::isWayBlocked(pair<int, int> position) {
-    return position.first >= 0 && position.first <= 10 &&
-           position.second >= 0 && position.second <= 10;
+    return position.first >= 0 && position.first < 10 &&
+           position.second >= 0 && position.second < 10;
 }
 
 //// Method to generate a new random direction

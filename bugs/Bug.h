@@ -24,6 +24,7 @@ public:
     int getID();
     string getName();
     int getSize();
+    bool isAlive();
     pair<int, int> getPosition();
     string getPositionString();
     Direction getDirection();
@@ -31,6 +32,8 @@ public:
 
     // setters
     void setPosition(pair<int, int>);
+    void increaseSize(int);
+    void setAlive(bool);
 
     virtual void move() = 0; // randomly move a bug
     virtual void move(pair<int, int>) = 0; // overloaded move method to move a bug to a specific location
