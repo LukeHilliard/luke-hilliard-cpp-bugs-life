@@ -1,24 +1,27 @@
 //
-// Created by Luke Hilliard on 08/04/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
-#ifndef LUKE_HILLIARD_CPP_BUGS_LIFE_CRAWLER_H
-#define LUKE_HILLIARD_CPP_BUGS_LIFE_CRAWLER_H
+
+#ifndef CPP_BUGS_LIFE_CRAWLER_H
+#define CPP_BUGS_LIFE_CRAWLER_H
 #include "Bug.h"
-#include "Direction.h"
-#include <string>
+#include <iostream>
 
 class Crawler : public Bug {
+protected:
 
 public:
-    Crawler(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path);
-    Crawler();
+    //// Constructor
+    // attributes derived from Bug base class
+    Crawler(int id, string name, int size, bool alive, pair<int, int> position, Direction direction, list<pair<int, int>> path);
 
-    virtual void move() override;
-    virtual void move(pair<int, int>) override;
-    virtual void setPath(pair<int, int>) override;
-    virtual void writeLifeHistory(list<pair<int, int>>) override;
+    //// Override derived virtual functions from Bug
+    virtual void move(bool) override;
+    virtual void updatePath(pair<int, int>&) override;
+    virtual void writeLifeHistory(list<pair<int, int>>&) override;
     virtual string toString() override;
+    //virtual std::ostream& operator<< (std::ostream out) override;
 };
 
 
-#endif //LUKE_HILLIARD_CPP_BUGS_LIFE_CRAWLER_H
+#endif //CPP_BUGS_LIFE_CRAWLER_H

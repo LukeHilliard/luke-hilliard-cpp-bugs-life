@@ -1,57 +1,56 @@
 //
-// Created by Luke Hilliard on 09/04/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
 
-#ifndef LUKE_HILLIARD_CPP_BUGS_LIFE_BOARD_H
-#define LUKE_HILLIARD_CPP_BUGS_LIFE_BOARD_H
-#include "../bugs/Bug.h"
-#include "../bugs/Crawler.h"
-#include "../bugs/Hopper.h"
-#include "../bugs/Direction.h"
+#ifndef CPP_BUGS_LIFE_BOARD_H
+#define CPP_BUGS_LIFE_BOARD_H
+#include "../Bugs/Bug.h"
+#include "../Bugs/Crawler.h"
+#include "../Bugs/Hopper.h"
+#include "../Bugs/Direction.h"
 #include <vector>
 #include <iostream>
 #include <fstream>
 #include <thread>
-using namespace std;
+
 class Board {
 private:
-    vector<Bug *> bugs;
+    vector<Bug *> bugs; // vector holding initialized bugs from txt
     Bug* board[10][10]; // 2D array representing the board, holds pointers to Bug objects
     bool isInitialized;
-    bool oneBugLeft;
     int bugsAlive;
-    int boardX;
-    int boardY;
 
 public:
-    // Constructor
+    /// Constructor
     Board();
 
-    //getters
+    //// Getters
     bool getBoardState();
-    int getBugAmount();
-    void getBugById(int);
 
-    // setters
+    //// Setters
     void updateBoardState(bool);
 
-    // Actions towards the board
-    void tokenizeInputStream(string line, char type);
-    void initializeBugBoard();
-    void placeBugsOnBoard();
-    void updateBoard();
-    void removeBugFromBoard(Bug*&);
+    //// Initialization
+    void initializeBoard();
+    void tokenizeInputStream(std::string, char);
+
+    //// Actions towards the board
+    void getBugById(int);
     void fight(Bug* &, Bug* &);
-    void tapBugBoard();
+    void placeBugsOnBoard();
+    void tapBoard();
+    void endGame(); // when the game ends manually
+    void endGame(Bug*&); // when the game ends via simulation
     void runSimulation();
-    void endGame(Bug*&);
-    void endGame();
 
-    // Display functions
-    void displayAllBugs();
-    void displayAllLifeHistory();
+    /// Display methods
     void displayBoard();
-    void displayBoardAsTable();
-
+    void displayAllBugs();
+    void displayLifeHistory();
+    void displayCellsAsList();
 };
-#endif //LUKE_HILLIARD_CPP_BUGS_LIFE_BOARD_H
+
+
+
+
+#endif //CPP_BUGS_LIFE_BOARD_H

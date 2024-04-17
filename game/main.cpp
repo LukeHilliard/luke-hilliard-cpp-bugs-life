@@ -1,47 +1,44 @@
 #include "main.h"
-#include <SFML/Graphics.hpp>
+using namespace std;
+
 
 int main() {
     int choice;
     bool exit = false;
     bool boardIsInitialized;
+    // TODO change size increase and position increase/decrease using operator override ++ --
 
-    Board* board = new Board(); // initialize board
+   Board* board = new Board(); // initialize board
     do{
         boardIsInitialized = board->getBoardState();// check board state after every time loop
-        displayMenu();
+        displayMainMenu();
         cin >> choice; // assuming choice is an integer
         switch(choice) {
-            case 9: { //TESTING
-                BoardGUI* game = new BoardGUI();
-                game->run();
-            }
-
-            // Initialize Bug Board
+                // Initialize Bug Board
             case 1: {
                 if(!boardIsInitialized) {// if the board is not initialized, initialize it
-                    board->initializeBugBoard();
+                    board->initializeBoard();
                     break;
                 } else { // else prompt for deletion of current bugs
                     char initializeChoice;
-                    cout << "WAIT, " << board->getBugAmount() << " bugs have already been added to the board. This action will delete all current bugs\nAre you sure you want to continue?\ny/n : ";
+                    cout << "WAIT, " /*<< board->getBugAmount()*/ << " bugs have already been added to the board. This action will delete all current bugs\nAre you sure you want to continue?\ny/n : ";
                     cin >> initializeChoice;
 
                     if(initializeChoice == 'y') {
                         cout << "You can now reinitialize the bug board" << endl;
-                        board->updateBoardState(false); // set board state to uninitialized
+                       // board->updateBoardState(false); // set board state to uninitialized
                     }
                     break;
                 }
             }
 
-            // Display all Bugs
+                // Display all Bugs
             case 2: {
                 board->displayAllBugs();
                 break;
             }
 
-            // Find a Bug by ID
+                // Find a Bug by ID
             case 3: {
                 while(true) { // Infinite loop until user wants to return to main menu
                     bool isValid = false;
@@ -73,28 +70,27 @@ int main() {
                 break;
             }
 
-            // Tap the Bug Board
+                // Tap the Bug Board
             case 4: {
-                board->tapBugBoard();
-                board->displayBoard();
+                board->tapBoard();
                 break;
             }
-            // Display Life History of all Bugs
+                // Display Life History of all Bugs
             case 5: {
-                board->displayAllLifeHistory();
+              board->displayLifeHistory();
                 break;
             }
-            // Display all Cells listing their Bugs
+                // Display all Cells listing their Bugs
             case 6: {
-                board->displayBoardAsTable();
+               board->displayCellsAsList();
                 break;
             }
-            // Run Simulation
+                // Run Simulation
             case 7: {
                 board->runSimulation();
                 break;
             }
-            // End Game
+                // End Game
             case 8: {
                 board->endGame();
                 exit = true;
@@ -106,32 +102,21 @@ int main() {
                 break;
             }
         }
-
     } while(!exit);
     return 0;
 }
 
 //// Method to display all menu options to the user
-void displayMenu() {
-    cout << "----------*\tBugs Life\t*----------" << endl;
-    cout << "\t  9. Test SFML\n";
-    cout << "\t  1. Initialise Bug Board\n";
-    cout << "\t  2. Display all Bugs\n";
-    cout << "\t  3. Find a Bug\n";
-    cout << "\t  4. Tap the Bug Board\n";
-    cout << "\t  5. Display Life History of all Bugs\n";
-    cout << "\t  6. Display all Cells listing their bugs\n";
-    cout << "\t  7. Run Simulation\n";
-    cout << "\t  8. Exit\n";
+    void displayMainMenu() {
+        cout << "-----------*   Bugs Life   *-----------" << endl;
+       // cout << "\t  9. Test SFML\n";
+        cout << "\t  1. Initialise Bug Board\n";
+        cout << "\t  2. Display all Bugs\n";
+        cout << "\t  3. Find a Bug\n";
+        cout << "\t  4. Tap the Bug Board\n";
+        cout << "\t  5. Display Life History of all Bugs\n";
+        cout << "\t  6. Display all Cells listing their bugs\n";
+        cout << "\t  7. Run Simulation\n";
+        cout << "\t  8. Exit\n";
+
 }
-
-
-
-
-
-
-
-
-
-
-

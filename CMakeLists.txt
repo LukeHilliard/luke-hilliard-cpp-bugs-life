@@ -14,8 +14,6 @@ add_executable(C__CA2
         bugs/Hopper.cpp
         game/Board.cpp
         game/Board.h
-        game/BoardGUI.cpp
-        game/BoardGUI.h
 )
 
 # Include SFML

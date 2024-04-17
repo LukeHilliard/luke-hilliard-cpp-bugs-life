@@ -104,12 +104,6 @@
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/Board.h">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp">
-			<Option target="C__CA2"/>
-		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.h">
-			<Option target="C__CA2"/>
-		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/main.cpp">
 			<Option target="C__CA2"/>
 		</Unit>

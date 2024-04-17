@@ -1,20 +1,13 @@
 //
-// Created by Luke Hilliard on 29/03/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
-#ifndef C_CA2_BUGSLIFE_H
-#define C_CA2_BUGSLIFE_H
-#include "../bugs/Bug.h"
-#include "../bugs/Crawler.h"
-#include "../bugs/Hopper.h"
-#include "../game/Board.h"
-#include "../game/BoardGUI.h"
+
+#ifndef CPP_BUGS_LIFE_MAIN_H
+#define CPP_BUGS_LIFE_MAIN_H
+#include "Board.h"
 #include <iostream>
 #include <fstream>
 #include <map>
 
-using namespace std;
-typedef void (*func)();
-
-void displayMenu();
-
-#endif //C_CA2_BUGSLIFE_H
+void displayMainMenu();
+#endif //CPP_BUGS_LIFE_MAIN_H
