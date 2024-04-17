@@ -225,30 +225,6 @@ game/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/Board.cpp.s
 .PHONY : game/Board.cpp.s
 
-game/BoardGUI.o: game/BoardGUI.cpp.o
-.PHONY : game/BoardGUI.o
-
-# target to build an object file
-game/BoardGUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o
-.PHONY : game/BoardGUI.cpp.o
-
-game/BoardGUI.i: game/BoardGUI.cpp.i
-.PHONY : game/BoardGUI.i
-
-# target to preprocess a source file
-game/BoardGUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.i
-.PHONY : game/BoardGUI.cpp.i
-
-game/BoardGUI.s: game/BoardGUI.cpp.s
-.PHONY : game/BoardGUI.s
-
-# target to generate assembly for a file
-game/BoardGUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.s
-.PHONY : game/BoardGUI.cpp.s
-
 game/main.o: game/main.cpp.o
 .PHONY : game/main.o
 
@@ -294,9 +270,6 @@ help:
 	@echo "... game/Board.o"
 	@echo "... game/Board.i"
 	@echo "... game/Board.s"
-	@echo "... game/BoardGUI.o"
-	@echo "... game/BoardGUI.i"
-	@echo "... game/BoardGUI.s"
 	@echo "... game/main.o"
 	@echo "... game/main.i"
 	@echo "... game/main.s"

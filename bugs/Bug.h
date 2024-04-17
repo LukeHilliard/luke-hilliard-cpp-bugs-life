@@ -1,48 +1,51 @@
 //
-// Created by Luke Hilliard on 29/03/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
-#ifndef C_CA2_BUG_H
-#define C_CA2_BUG_H
-#include "Direction.h"
+
+#ifndef CPP_BUGS_LIFE_BUG_H
+#define CPP_BUGS_LIFE_BUG_H
 #include <utility>
 #include <list>
+#include "Direction.h"
 
-using namespace std;
-
+//// BASE CLASS
 class Bug {
 protected:
+    // attributes of a bug
     int id;
-    string name;
-    pair<int, int> position;
-    Direction direction;
+    std::string name;
     int size;
     bool alive;
+    pair<int, int> position;
+    Direction direction;
     list<pair<int, int>> path;
-
 public:
-    // getters
-    int getID();
-    string getName();
+    //// Getters
+    int getId();
+    std::string getName();
     int getSize();
     bool isAlive();
     pair<int, int> getPosition();
-    string getPositionString();
     Direction getDirection();
-    list<pair<int, int>> getPath();
+    list<pair<int, int>>& getPath(); // return a reference to the Bugs path, could be a large list towards the end
+    int getPathSize();
 
-    // setters
-    void setPosition(pair<int, int>);
-    void increaseSize(int);
+    //// Setters
+    void eat(int);
     void setAlive(bool);
 
-    virtual void move() = 0; // randomly move a bug
-    virtual void move(pair<int, int>) = 0; // overloaded move method to move a bug to a specific location
-    virtual string toString() = 0;
-    virtual void setPath(pair<int, int> path) = 0;
-    virtual void writeLifeHistory(list<pair<int, int>>) = 0;
+    //// Virtual methods passed from Base class to children
+    virtual void move(bool) = 0;
+    virtual void updatePath(pair<int, int>&) = 0;
+    virtual void writeLifeHistory(list<pair<int, int>>&) = 0;
+    virtual string toString() = 0; // TODO change to override >>
+    //virtual std::ostream& operator<< (std::ostream out) = 0; // stream insertion overload
 
-    bool isWayBlocked(pair<int, int>);
-    Direction getNewDirection();
-
+    //// Helper methods
+    bool isWayBlocked(pair<int, int>&);
+    //Direction getNewDirection(Direction);
 };
-#endif //C_CA2_BUG_H
+
+
+
+#endif //CPP_BUGS_LIFE_BUG_H

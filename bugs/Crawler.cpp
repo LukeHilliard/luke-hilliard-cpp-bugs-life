@@ -1,31 +1,53 @@
 //
-// Created by Luke Hilliard on 08/04/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
 
 #include "Crawler.h"
-#include <fstream>
-Crawler::Crawler(int id, string name, pair<int, int> position, Direction direction, int size, bool alive, list<pair<int, int>> path) {
+//// Constructors
+Crawler::Crawler(int id, std::string name, int size, bool alive, pair<int, int> position, Direction direction, list<pair<int, int>> path) {
     this->id = id;
     this->name = name;
-    this->position = position;
-    this->direction = direction;
     this->size = size;
     this->alive = alive;
+    this->position = position;
+    this->direction = direction;
     this->path = path;
 }
 
-void Crawler::move() {
-    pair<int, int> nextPosition = this->position; // Create a temporary position before setting the actual position
+/**
+ *  Implementation of move functionality for a Crawler. A Crawler can move by 1
+ *  in the direction they are facing.
+ * Plan:
+ *      store position of bug before moving
+ *
+ *      switch
+ *          directions
+ *          update next position based on which direction
+ *
+ *      while is way blocked with next position
+ *          reset next position with original position
+ *          increase the direction by 1, dont let it go above 4 or below 1
+ *          update next position based on which direction
+ *
+ *          repeat until the way is not blocked with next position
+ *
+ *      update the position with next position
+ *
+ *      Making the Bugs move is one of the main reasons I created this repo and started rebuilding my project, I want to try and find the root cause of some of my issues from developing on the shared repo
+ */
+void Crawler::move(bool changeDirection) {
+    pair<int, int> originalPosition = this->position, nextPosition = originalPosition;
 
-    // Randomize the length of time a bug stays in a certain direction
-    bool doRandomDirection = (rand() % 100 + 1) % 4 == 0; // 25% chance a bug will change direction
-    cout << "doRandomDirection on (" << this->id << ") ---> " << doRandomDirection << endl;
-    if (doRandomDirection)
-        this->direction = getNewDirection(); // Generate a new random direction before moving
+    int directionIndex = static_cast<int>(this->direction);
+    if(changeDirection) {
 
-    cout << "Moving " << this->name << " (" << this->id << ") from position (" << nextPosition.first << ", " << nextPosition.second << ") to ";
+        directionIndex++;
+        if(directionIndex > 4) // keep index within bounds, 1 - 4
+            directionIndex = 1;
+        this->direction = static_cast<Direction>(directionIndex);
+        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
+    }
 
-    // Handle the next position based on the direction
     switch (this->direction) {
         case Direction::NORTH:
             nextPosition.second -= 1;
@@ -41,98 +63,47 @@ void Crawler::move() {
             break;
     }
 
-    // Check if the next position generated is within bounds
-    if (!isWayBlocked(nextPosition)) { // If the next position generated is out of bounds
-        int badDirectionCount = 0;
-        Direction originalDirection = this->direction; // Store the original direction
-        bool newPathFound = false;
-
-        do {
-            // Try a new direction
-            this->direction = getNewDirection();
-
-            // Calculate the next position based on the new direction
-            switch (this->direction) {
-                case Direction::NORTH:
-                    nextPosition.second -= 1;
-                    break;
-                case Direction::EAST:
-                    nextPosition.first += 1;
-                    break;
-                case Direction::SOUTH:
-                    nextPosition.second += 1;
-                    break;
-                case Direction::WEST:
-                    nextPosition.first -= 1;
-                    break;
-            }
-
-            // Check if the new path is blocked
-            if (isWayBlocked(nextPosition)) {
-                newPathFound = true;
+    while(Crawler::isWayBlocked(nextPosition)) {
+        //cout << "WAY IS BLOCKED - " << id << " " << name << " " << position.first << ", " << position.second << endl;
+        directionIndex++;
+        if(directionIndex > 4) // keep index within bounds, 1 - 4
+            directionIndex = 1;
+        this->direction = static_cast<Direction>(directionIndex);
+        //cout << "TRYING " << directionToString(direction) <<endl;
+        switch (this->direction) {
+            case Direction::NORTH:
+                nextPosition.second -= 1;
                 break;
-            }
-
-            // Increment bad direction count
-            badDirectionCount++;
-
-            // Break if the crawler gets stuck in a loop of bad directions
-            if (badDirectionCount > 10000000) {
-                newPathFound = true;
+            case Direction::EAST:
+                nextPosition.first += 1;
                 break;
-            }
-        } while (!newPathFound);
-
-        if (!newPathFound) {
-//            cout << " * PATH BLOCKED > 10000000 *" << endl;
-//            return;
+            case Direction::SOUTH:
+                nextPosition.second += 1;
+                break;
+            case Direction::WEST:
+                nextPosition.first -= 1;
+                break;
+        }
+        //cout << "MOVING TO " <<  nextPosition.first << ", " << nextPosition.second << endl;
+        if(!isWayBlocked(nextPosition)) {
+            break;
+        } else {
+            nextPosition = originalPosition; // reset position
         }
     }
-
-    // Move the crawler to the new position if the path is not blocked
-    cout << "(" << nextPosition.first << ", " << nextPosition.second << ")" << endl;
-    position = nextPosition;
-    this->path.push_back(position); // Add the next position to the path history
-}
-
-//// overloaded move method, takes a position as a parameter and moves bug to that location on the board
-void Crawler::move(pair<int, int> nextPosition) {
     this->position = nextPosition;
-    this->path.push_back(position); // add next position to path history
-}
-
-void Crawler::setPath(pair<int, int>  nextPosition) {
     this->path.push_back(nextPosition);
 }
 
-//// Write the life history of an instance of bug to bugs_life_history_date_time.txt
-void Crawler::writeLifeHistory(list<pair<int, int>>) {
-    string LIFE_HISTORY;
 
-    ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
-    if(fout) // make sure the file has opened correctly
-    {
-        // create string to before writing to file
-        string id = to_string(this->id);
-        string positionStr;
-
-        // construct life history string
-        LIFE_HISTORY = this->name + "(" + to_string(this->id) + ") | Moved " + to_string(this->path.size()) + " times - History: ";
-        // add all paths to line
-        for(auto iter = this->path.begin(); iter != this->path.end(); iter++) {
-            pair<int, int> nextPosition = *iter; // Dereference iter
-            positionStr = "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
-            LIFE_HISTORY += positionStr;
-        }
-        LIFE_HISTORY +=  " |";
-        fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
-        fout.close(); // close the file when we are finished.
-    } else {
-        cout << "Unable to open file." <<endl;
-    }
+//// Helper methods
+void Crawler::updatePath(pair<int, int> &latestPosition) { this->path.push_back(latestPosition); }
+void Crawler::writeLifeHistory(list<pair<int, int>> &path) {
+    // TODO
 }
 
-string Crawler::toString()  {
+
+string Crawler::toString()  { // TODO change to override >>
     string status;
     if(alive)
         status = "Alive";
@@ -141,6 +112,16 @@ string Crawler::toString()  {
     return "| " + this->name + " (" + to_string(id) + ") | " +
            "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
            "Status: " + status + " | "
-           "Size  : " + to_string(size) + " | " +
-           "Facing: " + directionToString(direction) + " |\n";
+           "Size: " + to_string(size) + " | " +
+           "Facing: " + directionToString(direction) + " \t|\n";
 }
+
+
+
+//// Operator overloads
+//ostream& operator<< (ostream& out) const {
+//    out << "Crawler (" << Crawler::<< ") | Size: " << ref_Crawler->getSize() << endl;
+//    out << "Position: (" << ref_Crawler->getPosition().first << ", " << ref_Crawler->getPosition().second << ") | Facing: " << directionToString(ref_Crawler->getDirection()) << endl;
+//
+//    return out;
+//}

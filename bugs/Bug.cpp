@@ -1,59 +1,27 @@
 //
-// Created by Luke Hilliard on 29/03/2024.
+// Created by Luke Hilliard on 17/04/2024.
 //
 
 #include "Bug.h"
-#include <iostream>
-// creation of classes in c++ followed from: https://www.w3schools.com/cpp/cpp_classes.asp
-
 //// Getters
-int Bug::getID() {return this->id;}
-string Bug::getName() {return this->name;}
-int Bug::getSize() {return this->size;}
-bool Bug::isAlive() {return this->alive;}
-pair<int, int> Bug::getPosition() {return this->position;}
-string Bug::getPositionString(){return "(" + to_string(this->position.first) + ", " + to_string(this->position.second) + ")";}
-Direction Bug::getDirection() {return this->direction;}
-list<pair<int, int>> Bug::getPath() {return this->path;}
-
+int Bug::getId() { return this->id; }
+string Bug::getName() { return this->name; }
+int Bug::getSize() { return this->size; }
+bool Bug::isAlive() { return this->alive; }
+pair<int, int> Bug::getPosition() { return this->position; }
+Direction Bug::getDirection() { return this->direction; }
+list<pair<int, int>>& Bug::getPath() { return this->path; }
+int Bug::getPathSize() { return this->path.size(); }
 
 //// Setters
-void Bug::setPosition(pair<int, int> newPosition) {this->position = newPosition;}
-void Bug::increaseSize(int sizeToIncreaseBy) {this->size += sizeToIncreaseBy;}
-void Bug::setAlive(bool alive) {this->alive = alive;}
+void Bug::eat(int sizeToIncreaseBy) { this->size += sizeToIncreaseBy; }
+void Bug::setAlive(bool newBugState) { this->alive = newBugState; }
 
-//// Method to check if the current position is within bounds
-bool Bug::isWayBlocked(pair<int, int> position) {
-    return position.first >= 0 && position.first < 10 &&
-           position.second >= 0 && position.second < 10;
+//// Helper methods
+bool Bug::isWayBlocked(pair<int, int> &position) {
+    if((position.first < 0 || position.second > 9) ||
+            (position.first > 9 || position.second < 0))
+        return true; // position is within bounds 0 - 9 on the board
+    else
+        return  false; // position is out of bounds
 }
-
-//// Method to generate a new random direction
-Direction Bug::getNewDirection() {
-    return static_cast<Direction>(rand() % 4 + 1);
-}
-
-/* stop bugs from going up/down over and over
-        Increasing x moves you south (down)
-        Decreasing x moves you north (up)
-        Increasing y moves you east (right)
-        Decreasing y moves you west (left)
- x count
- y count
-
- if position.first = 0 || position.first = 10
-    x count ++
-    y count --;
-
-if position.second = 0 || position.second = 10
-    y count ++
-    x count --;
-
-if y count > 2
-    random direction {EAST, WEST}
-
- if x count > 2
-    random direction {SOUTH, NORTH}
- */
-
-
