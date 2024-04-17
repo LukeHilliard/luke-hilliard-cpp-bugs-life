@@ -80,34 +80,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.cpp">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.h">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.cpp">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.h">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.cpp">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.cpp">
 			<Option target="C__CA2"/>
 		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.h">
+		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.h">
 			<Option target="C__CA2"/>
 		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/Board.cpp">
 			<Option target="C__CA2"/>
 		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/Board.h">
-			<Option target="C__CA2"/>
-		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp">
-			<Option target="C__CA2"/>
-		</Unit>
-		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.h">
 			<Option target="C__CA2"/>
 		</Unit>
 		<Unit filename="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/main.cpp">

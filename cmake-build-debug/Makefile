@@ -129,77 +129,77 @@ C__CA2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/build
 .PHONY : C__CA2/fast
 
-bugs/Bug.o: bugs/Bug.cpp.o
-.PHONY : bugs/Bug.o
+Bugs/Bug.o: Bugs/Bug.cpp.o
+.PHONY : Bugs/Bug.o
 
 # target to build an object file
-bugs/Bug.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o
-.PHONY : bugs/Bug.cpp.o
+Bugs/Bug.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o
+.PHONY : Bugs/Bug.cpp.o
 
-bugs/Bug.i: bugs/Bug.cpp.i
-.PHONY : bugs/Bug.i
+Bugs/Bug.i: Bugs/Bug.cpp.i
+.PHONY : Bugs/Bug.i
 
 # target to preprocess a source file
-bugs/Bug.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Bug.cpp.i
-.PHONY : bugs/Bug.cpp.i
+Bugs/Bug.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.i
+.PHONY : Bugs/Bug.cpp.i
 
-bugs/Bug.s: bugs/Bug.cpp.s
-.PHONY : bugs/Bug.s
+Bugs/Bug.s: Bugs/Bug.cpp.s
+.PHONY : Bugs/Bug.s
 
 # target to generate assembly for a file
-bugs/Bug.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Bug.cpp.s
-.PHONY : bugs/Bug.cpp.s
+Bugs/Bug.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.s
+.PHONY : Bugs/Bug.cpp.s
 
-bugs/Crawler.o: bugs/Crawler.cpp.o
-.PHONY : bugs/Crawler.o
+Bugs/Crawler.o: Bugs/Crawler.cpp.o
+.PHONY : Bugs/Crawler.o
 
 # target to build an object file
-bugs/Crawler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o
-.PHONY : bugs/Crawler.cpp.o
+Bugs/Crawler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o
+.PHONY : Bugs/Crawler.cpp.o
 
-bugs/Crawler.i: bugs/Crawler.cpp.i
-.PHONY : bugs/Crawler.i
+Bugs/Crawler.i: Bugs/Crawler.cpp.i
+.PHONY : Bugs/Crawler.i
 
 # target to preprocess a source file
-bugs/Crawler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.i
-.PHONY : bugs/Crawler.cpp.i
+Bugs/Crawler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.i
+.PHONY : Bugs/Crawler.cpp.i
 
-bugs/Crawler.s: bugs/Crawler.cpp.s
-.PHONY : bugs/Crawler.s
+Bugs/Crawler.s: Bugs/Crawler.cpp.s
+.PHONY : Bugs/Crawler.s
 
 # target to generate assembly for a file
-bugs/Crawler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.s
-.PHONY : bugs/Crawler.cpp.s
+Bugs/Crawler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.s
+.PHONY : Bugs/Crawler.cpp.s
 
-bugs/Hopper.o: bugs/Hopper.cpp.o
-.PHONY : bugs/Hopper.o
+Bugs/Hopper.o: Bugs/Hopper.cpp.o
+.PHONY : Bugs/Hopper.o
 
 # target to build an object file
-bugs/Hopper.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o
-.PHONY : bugs/Hopper.cpp.o
+Bugs/Hopper.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o
+.PHONY : Bugs/Hopper.cpp.o
 
-bugs/Hopper.i: bugs/Hopper.cpp.i
-.PHONY : bugs/Hopper.i
+Bugs/Hopper.i: Bugs/Hopper.cpp.i
+.PHONY : Bugs/Hopper.i
 
 # target to preprocess a source file
-bugs/Hopper.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.i
-.PHONY : bugs/Hopper.cpp.i
+Bugs/Hopper.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.i
+.PHONY : Bugs/Hopper.cpp.i
 
-bugs/Hopper.s: bugs/Hopper.cpp.s
-.PHONY : bugs/Hopper.s
+Bugs/Hopper.s: Bugs/Hopper.cpp.s
+.PHONY : Bugs/Hopper.s
 
 # target to generate assembly for a file
-bugs/Hopper.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.s
-.PHONY : bugs/Hopper.cpp.s
+Bugs/Hopper.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.s
+.PHONY : Bugs/Hopper.cpp.s
 
 game/Board.o: game/Board.cpp.o
 .PHONY : game/Board.o
@@ -224,30 +224,6 @@ game/Board.s: game/Board.cpp.s
 game/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/Board.cpp.s
 .PHONY : game/Board.cpp.s
-
-game/BoardGUI.o: game/BoardGUI.cpp.o
-.PHONY : game/BoardGUI.o
-
-# target to build an object file
-game/BoardGUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o
-.PHONY : game/BoardGUI.cpp.o
-
-game/BoardGUI.i: game/BoardGUI.cpp.i
-.PHONY : game/BoardGUI.i
-
-# target to preprocess a source file
-game/BoardGUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.i
-.PHONY : game/BoardGUI.cpp.i
-
-game/BoardGUI.s: game/BoardGUI.cpp.s
-.PHONY : game/BoardGUI.s
-
-# target to generate assembly for a file
-game/BoardGUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/C__CA2.dir/build.make CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.s
-.PHONY : game/BoardGUI.cpp.s
 
 game/main.o: game/main.cpp.o
 .PHONY : game/main.o
@@ -282,21 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... C__CA2"
-	@echo "... bugs/Bug.o"
-	@echo "... bugs/Bug.i"
-	@echo "... bugs/Bug.s"
-	@echo "... bugs/Crawler.o"
-	@echo "... bugs/Crawler.i"
-	@echo "... bugs/Crawler.s"
-	@echo "... bugs/Hopper.o"
-	@echo "... bugs/Hopper.i"
-	@echo "... bugs/Hopper.s"
+	@echo "... Bugs/Bug.o"
+	@echo "... Bugs/Bug.i"
+	@echo "... Bugs/Bug.s"
+	@echo "... Bugs/Crawler.o"
+	@echo "... Bugs/Crawler.i"
+	@echo "... Bugs/Crawler.s"
+	@echo "... Bugs/Hopper.o"
+	@echo "... Bugs/Hopper.i"
+	@echo "... Bugs/Hopper.s"
 	@echo "... game/Board.o"
 	@echo "... game/Board.i"
 	@echo "... game/Board.s"
-	@echo "... game/BoardGUI.o"
-	@echo "... game/BoardGUI.i"
-	@echo "... game/BoardGUI.s"
 	@echo "... game/main.o"
 	@echo "... game/main.i"
 	@echo "... game/main.s"

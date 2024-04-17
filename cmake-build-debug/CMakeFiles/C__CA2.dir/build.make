@@ -83,47 +83,47 @@ CMakeFiles/C__CA2.dir/game/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/game/main.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/main.cpp" -o CMakeFiles/C__CA2.dir/game/main.cpp.s
 
-CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o: CMakeFiles/C__CA2.dir/flags.make
-CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.cpp
-CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o -MF CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o.d -o CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.cpp"
+CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o: CMakeFiles/C__CA2.dir/flags.make
+CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.cpp
+CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o -MF CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o.d -o CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.cpp"
 
-CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.cpp" > CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.i
+CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.cpp" > CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.i
 
-CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Crawler.cpp" -o CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.s
+CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Crawler.cpp" -o CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.s
 
-CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o: CMakeFiles/C__CA2.dir/flags.make
-CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.cpp
-CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o -MF CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o.d -o CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.cpp"
+CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o: CMakeFiles/C__CA2.dir/flags.make
+CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.cpp
+CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o -MF CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o.d -o CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.cpp"
 
-CMakeFiles/C__CA2.dir/bugs/Bug.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/bugs/Bug.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.cpp" > CMakeFiles/C__CA2.dir/bugs/Bug.cpp.i
+CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.cpp" > CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.i
 
-CMakeFiles/C__CA2.dir/bugs/Bug.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/bugs/Bug.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Bug.cpp" -o CMakeFiles/C__CA2.dir/bugs/Bug.cpp.s
+CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Bug.cpp" -o CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.s
 
-CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o: CMakeFiles/C__CA2.dir/flags.make
-CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.cpp
-CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o -MF CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o.d -o CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.cpp"
+CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o: CMakeFiles/C__CA2.dir/flags.make
+CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.cpp
+CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o -MF CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o.d -o CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.cpp"
 
-CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.cpp" > CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.i
+CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.cpp" > CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.i
 
-CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/bugs/Hopper.cpp" -o CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.s
+CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/Bugs/Hopper.cpp" -o CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.s
 
 CMakeFiles/C__CA2.dir/game/Board.cpp.o: CMakeFiles/C__CA2.dir/flags.make
 CMakeFiles/C__CA2.dir/game/Board.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/game/Board.cpp
@@ -139,38 +139,22 @@ CMakeFiles/C__CA2.dir/game/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/game/Board.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/Board.cpp" -o CMakeFiles/C__CA2.dir/game/Board.cpp.s
 
-CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o: CMakeFiles/C__CA2.dir/flags.make
-CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o: /Users/lukehilliard/Desktop/C++\ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp
-CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o: CMakeFiles/C__CA2.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o -MF CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o.d -o CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o -c "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp"
-
-CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp" > CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.i
-
-CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/game/BoardGUI.cpp" -o CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.s
-
 # Object files for target C__CA2
 C__CA2_OBJECTS = \
 "CMakeFiles/C__CA2.dir/game/main.cpp.o" \
-"CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o" \
-"CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o" \
-"CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o" \
-"CMakeFiles/C__CA2.dir/game/Board.cpp.o" \
-"CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o"
+"CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o" \
+"CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o" \
+"CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o" \
+"CMakeFiles/C__CA2.dir/game/Board.cpp.o"
 
 # External object files for target C__CA2
 C__CA2_EXTERNAL_OBJECTS =
 
 C__CA2: CMakeFiles/C__CA2.dir/game/main.cpp.o
-C__CA2: CMakeFiles/C__CA2.dir/bugs/Crawler.cpp.o
-C__CA2: CMakeFiles/C__CA2.dir/bugs/Bug.cpp.o
-C__CA2: CMakeFiles/C__CA2.dir/bugs/Hopper.cpp.o
+C__CA2: CMakeFiles/C__CA2.dir/Bugs/Crawler.cpp.o
+C__CA2: CMakeFiles/C__CA2.dir/Bugs/Bug.cpp.o
+C__CA2: CMakeFiles/C__CA2.dir/Bugs/Hopper.cpp.o
 C__CA2: CMakeFiles/C__CA2.dir/game/Board.cpp.o
-C__CA2: CMakeFiles/C__CA2.dir/game/BoardGUI.cpp.o
 C__CA2: CMakeFiles/C__CA2.dir/build.make
 C__CA2: /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib
 C__CA2: /opt/homebrew/lib/libsfml-audio.2.6.1.dylib
@@ -178,7 +162,7 @@ C__CA2: /opt/homebrew/lib/libsfml-network.2.6.1.dylib
 C__CA2: /opt/homebrew/lib/libsfml-window.2.6.1.dylib
 C__CA2: /opt/homebrew/lib/libsfml-system.2.6.1.dylib
 C__CA2: CMakeFiles/C__CA2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable C__CA2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/lukehilliard/Desktop/C++ CA2/luke-hilliard-cpp-bugs-life/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable C__CA2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/C__CA2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

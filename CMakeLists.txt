@@ -6,16 +6,14 @@ set(CMAKE_CXX_STANDARD 17)
 # Add all source files to the executable
 add_executable(C__CA2
         game/main.cpp
-        bugs/Bug.h
-        bugs/Crawler.h
-        bugs/Crawler.cpp
-        bugs/Bug.cpp
-        bugs/Hopper.h
-        bugs/Hopper.cpp
+        Bugs/Bug.h
+        Bugs/Crawler.h
+        Bugs/Crawler.cpp
+        Bugs/Bug.cpp
+        Bugs/Hopper.h
+        Bugs/Hopper.cpp
         game/Board.cpp
         game/Board.h
-        game/BoardGUI.cpp
-        game/BoardGUI.h
 )
 
 # Include SFML
