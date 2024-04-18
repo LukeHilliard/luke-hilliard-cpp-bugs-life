@@ -25,3 +25,11 @@ bool Bug::isWayBlocked(pair<int, int> &position) {
     else
         return  false; // position is out of bounds
 }
+
+//// Operator overloads
+ostream& operator<< (ostream& out, const Bug* ref_Bug) {
+    out << "Crawler (" << ref_Bug->id << ") | Size: " << ref_Bug->size << endl;
+    out << "Position: (" << ref_Bug->position.first << ", " << ref_Bug->position.second << ") | Facing: " << directionToString(ref_Bug->direction) << "\n" << endl;
+
+    return out;
+}

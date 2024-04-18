@@ -115,13 +115,3 @@ string Crawler::toString()  { // TODO change to override >>
            "Size: " + to_string(size) + " | " +
            "Facing: " + directionToString(direction) + " \t|\n";
 }
-
-
-
-//// Operator overloads
-//ostream& operator<< (ostream& out) const {
-//    out << "Crawler (" << Crawler::<< ") | Size: " << ref_Crawler->getSize() << endl;
-//    out << "Position: (" << ref_Crawler->getPosition().first << ", " << ref_Crawler->getPosition().second << ") | Facing: " << directionToString(ref_Crawler->getDirection()) << endl;
-//
-//    return out;
-//}

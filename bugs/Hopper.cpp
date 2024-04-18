@@ -35,16 +35,16 @@ void Hopper::move(bool changeDirection) {
 
     switch (this->direction) {
         case Direction::NORTH:
-            nextPosition.second -= 1;
+            nextPosition.second -= hopLength;
             break;
         case Direction::EAST:
-            nextPosition.first += 1;
+            nextPosition.first += hopLength;
             break;
         case Direction::SOUTH:
-            nextPosition.second += 1;
+            nextPosition.second += hopLength;
             break;
         case Direction::WEST:
-            nextPosition.first -= 1;
+            nextPosition.first -= hopLength;
             break;
     }
 
@@ -57,16 +57,17 @@ void Hopper::move(bool changeDirection) {
         //cout << "TRYING " << directionToString(direction) <<endl;
         switch (this->direction) {
             case Direction::NORTH:
-                nextPosition.second -= 1;
+                nextPosition.second -= hopLength;
                 break;
             case Direction::EAST:
-                nextPosition.first += 1;
+                nextPosition.first += hopLength;
                 break;
             case Direction::SOUTH:
-                nextPosition.second += 1;
+                nextPosition.second += hopLength;
                 break;
             case Direction::WEST:
-                nextPosition.first -= 1;
+                nextPosition.first -= hopLength;
+                        ;
                 break;
         }
         //cout << "MOVING TO " <<  nextPosition.first << ", " << nextPosition.second << endl;

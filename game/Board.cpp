@@ -62,6 +62,7 @@ void Board::tokenizeInputStream(string line, char type) {
                 Crawler* crawler = new Crawler(id, "Crawler", size, true, position, direction, path);
                 bugs.push_back(crawler);
                 cout << "Crawler added to the arena!\n";
+                cout << crawler;
                 break;
             }
             case 'H': {
@@ -69,6 +70,7 @@ void Board::tokenizeInputStream(string line, char type) {
                 Hopper *hopper = new Hopper(id, "Hopper", size, true, position, direction, path, hopLength);
                 bugs.push_back(hopper);
                 cout << "Hopper added to the arena!\n";
+                cout << hopper;
                 break;
             }
         }
@@ -238,7 +240,7 @@ void Board::runSimulation() {
     // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
     do{
         this->tapBoard();
-        this_thread::sleep_for(chrono::milliseconds (50)); // stop execution on this thread for 1 second
+        this_thread::sleep_for(chrono::milliseconds (1000)); // stop execution on this thread for 1 second
     } while(bugsAlive > 1); // loop until 1 bug remains
 
     displayBoard(); // display the final move

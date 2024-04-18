@@ -21,6 +21,8 @@ public:
     virtual void writeLifeHistory(list<pair<int, int>>&) override;
     virtual string toString() override;
     //virtual std::ostream& operator<< (std::ostream out) override;
+
+
 };
 
 
