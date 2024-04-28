@@ -46,7 +46,8 @@ public:
 
     //// Operator overloads
     friend std::ostream& operator<<(std::ostream&, const Bug* b);
-//    bool operator> (Bug* const*& obj);
+    bool operator> (const Bug*& obj);
+
 //    bool operator< (Bug const*& obj);
 };
 

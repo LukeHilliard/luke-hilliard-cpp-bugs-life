@@ -7,15 +7,16 @@ int main() {
     bool exit = false;
     bool boardIsInitialized;
     int bugsAlive;
-    // TODO change size increase and position increase/decrease using operator override ++ --
 
     Board* board = new Board(); // initialize board
+
+
     do{
-        boardIsInitialized = board->getBoardState();// check board state after every time loop
-        bugsAlive = board->getBugsAlive();
+        boardIsInitialized = board->getBoardState();// update board state
+        bugsAlive = board->getBugsAlive(); // update how many bugs are alive
         displayMainMenu();
+
         cin >> choice; // assuming choice is an integer
-        cout << bugsAlive << endl;
         
         switch(choice) {
                 // Initialize Bug Board
@@ -31,6 +32,8 @@ int main() {
                     if(initializeChoice == 'y') {
                         cout << "You can now reinitialize the bug board" << endl;
                        // board->updateBoardState(false); // set board state to uninitialized
+                    } else {
+
                     }
                     break;
                 }
@@ -44,7 +47,6 @@ int main() {
                 // Find a Bug by ID
             case 3: {
                 while(true) { // Infinite loop until user wants to return to main menu
-                    bool isValid = false;
                     if (boardIsInitialized) {
                         int inputId, temp;
                         cout << "Enter an ID to find, -1 to return (e.g. 101): ";
@@ -112,6 +114,9 @@ int main() {
             exit = true;
         }
     } while(!exit);
+
+    delete board; // Free allocated memory
+
     return 0;
 }
 

@@ -42,11 +42,11 @@ ostream& operator<< (ostream& out, const Bug* ref_Bug) {
 }
 
 // greater than ( > ) overload
-//bool Bug::operator> (const Bug* other) {
-//    if (size > other->size)
-//        return true;
-//    else
-//        return false;
-//}
+bool Bug::operator> (const Bug*& other) {
+    if (size > other->size)
+        return true;
+    else
+        return false;
+}
 
 

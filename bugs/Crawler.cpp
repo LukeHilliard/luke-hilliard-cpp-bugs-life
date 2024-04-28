@@ -45,7 +45,7 @@ void Crawler::move(bool changeDirection) {
         if(directionIndex > 4) // keep index within bounds, 1 - 4
             directionIndex = 1;
         this->direction = static_cast<Direction>(directionIndex);
-        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
+
     }
 
     switch (this->direction) {

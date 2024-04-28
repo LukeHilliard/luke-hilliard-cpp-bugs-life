@@ -22,8 +22,23 @@ private:
     int bugsAlive;
 
 public:
-    /// Constructor
+    //// Constructor
     Board();
+
+    //// Destructor
+    ~Board() {
+        for(auto& bug: bugs) {
+            delete bug;
+            bug = nullptr;
+        }
+        cellsAtTime.clear();
+      for(int x = 0; x < 10; x++) {
+          for(int y = 0; y < 10; y++) {
+              delete board[x][y];
+              board[x][y] = nullptr;
+          }
+      }
+    }
 
     //// Getters
     bool getBoardState();
