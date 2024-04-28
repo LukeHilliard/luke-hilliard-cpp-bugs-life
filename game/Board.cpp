@@ -242,37 +242,56 @@ void Board::tapBoard() {
     placeBugsOnBoard();
 }
 
+// TODO delete bugs and clear the board
 void Board::endGame() /* manual ending */ {
-    bool bugsLeft = bugs.size() == 1;
-    
-    // enter this branch if there is more than 1 bug left, the game was ended manually
-    if(!bugsLeft) {
-        cout << "\t\t\t--------* Bugs remaining *--------" << endl;
-        for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-            Bug *bug = *iter;
-            bug->writeLifeHistory(bug->getPath());
-            cout << bug;
+    bool bugsLeft = this->getBugsAlive() == 1;
+    if(!getBoardState()) { // if the board is not initialized end the game without displaying any bug information
+        cout << "\nExiting game..." << endl;
+    } else {
+        // enter this branch if there is more than 1 bug left, the game was ended manually
+        if (!bugsLeft) {
+            cout << "+------------------* Game ended  *------------------+\n" << endl;
+            cout << "\t\t\t\tRemaining bugs: " << this->getBugsAlive() << "\n" << endl;
+
+            for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+                Bug *bug = *iter;
+                cout << "\t\t\t" << bug->getName() << " (" << bug->getId() << ") | ";
+                cout << "Final size: " << bug->getSize();
+                if (bug->getSize() == 20)
+                    cout << " (MAX)" << endl;
+                else
+                    cout << endl;
+                cout << "\t\tFinal position: ( " << bug->getPosition().first << ", " << bug->getPosition().second
+                     << ")" << " | Total moves: " << bug->getPathSize() << endl;
+                cout << "\t\t\t-------------------------------" << endl;
+            }
+            // delete bugs
+            for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+                Bug *b = *iter;
+                //delete b;
+            }
+            cout << "\n\n+---------------------------------------------------+\n" << endl;
+        } else { // Enter this branch if the game was end automatically due to one bug remaining
+            Bug *bug = bugs.at(0);
+            cout << "+--------------------* Winner  *--------------------+\n" << endl;
+
+                cout << "\t\t\t-------------------------------" << endl;
+                cout << "\t\t\t" << bug->getName() << " (" << bug->getId() << ") | ";
+                cout << "Final size: " << bug->getSize();
+                if (bug->getSize() == 20)
+                    cout << " (MAX)" << endl;
+                else
+                    cout << endl;
+                cout << "\t\tFinal position: ( " << bug->getPosition().first << ", " << bug->getPosition().second
+                     << ")" << " | Total moves: " << bug->getPathSize() << endl;
+                cout << "\t\t\t-------------------------------" << endl;
+
+            cout << "\n+---------------------------------------------------+\n" << endl;
+
         }
-        // delete bugs
-        for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-            Bug *b = *iter;
-            //delete b;
-        }
-    } else { // Enter this branch if the game was end automatically due to one bug remaining
-        cout << "\t\t\t--------* Winner *--------" << endl;
-        Bug* bug = bugs.at(0);
-        cout << bug->getName() << " (" << bug->getId() << ")\n";
-        cout << "Final size: " << bug->getSize();
-        if(bug->getSize() == 20)
-            cout << " (MAX)\n";
-        else
-            cout << endl;
-        cout << "Final position: ( " << bug->getPosition().first << ", " << bug->getPosition().second << ")" <<  "\n";
-        cout << "Total moves: " << bug->getPathSize() << endl;
-
-
-
     }
+
+
 }
 
 
