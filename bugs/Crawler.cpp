@@ -39,14 +39,14 @@ void Crawler::move(bool changeDirection) {
     pair<int, int> originalPosition = this->position, nextPosition = originalPosition;
 
     int directionIndex = static_cast<int>(this->direction);
-//    if(changeDirection) {
-//
-//        directionIndex++;
-//        if(directionIndex > 4) // keep index within bounds, 1 - 4
-//            directionIndex = 1;
-//        this->direction = static_cast<Direction>(directionIndex);
-//        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
-//    }
+    if(changeDirection) {
+
+        directionIndex++;
+        if(directionIndex > 4) // keep index within bounds, 1 - 4
+            directionIndex = 1;
+        this->direction = static_cast<Direction>(directionIndex);
+        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
+    }
 
     switch (this->direction) {
         case Direction::NORTH:

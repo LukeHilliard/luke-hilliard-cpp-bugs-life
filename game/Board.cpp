@@ -161,12 +161,14 @@ void Board::fight(Bug* &bug1, Bug* &bug2) {
 
 // Loops through the bugs vector, if the bug is alive place the bug on the 2D board[][] at the positions provided from Bug
 void Board::placeBugsOnBoard() {
+    this->bugsAlive = 0;
     // place bugs that are alive onto the board
     for(auto bugsIter = bugs.begin(); bugsIter != bugs.end(); bugsIter++) {
         Bug* bug = *bugsIter; // dereference bug from iter
         if(bug->isAlive()) {
             if(board[bug->getPosition().first][bug->getPosition().second] == nullptr) { // if the positions provided by the bug are empty on the board
                 board[bug->getPosition().first][bug->getPosition().second] = bug;
+                this->bugsAlive++;
                 //cout << "positions from bugs: " << bug->getId() << " | " << x << ", " << y << endl;
             }
         }
@@ -176,6 +178,7 @@ void Board::placeBugsOnBoard() {
 // Simulates the "tapping" of the board, created with the idea of rendering in mind, displays the board, iterates through bugs vector and calls move function on each bug with the
 // possibility of changing direction, loop through bugs again and check if any have the same position, if they do make them fight, set all positions to nullptrs, call method to place bugs on board, repeat.
 void Board::tapBoard() {
+    srand(time(0));
     bool changeDirection;
 
 
@@ -306,7 +309,7 @@ void Board::runSimulation() {
     // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
     do{
         this->tapBoard();
-        this_thread::sleep_for(chrono::milliseconds (1000)); // stop execution on this thread for 1 second
+        this_thread::sleep_for(chrono::milliseconds (50)); // stop execution on this thread for 1 second
     } while(bugsAlive > 1); // loop until 1 bug remains
 
     // if this point is reached there is 1 bug left alive and the game ends
