@@ -39,14 +39,14 @@ void Crawler::move(bool changeDirection) {
     pair<int, int> originalPosition = this->position, nextPosition = originalPosition;
 
     int directionIndex = static_cast<int>(this->direction);
-    if(changeDirection) {
-
-        directionIndex++;
-        if(directionIndex > 4) // keep index within bounds, 1 - 4
-            directionIndex = 1;
-        this->direction = static_cast<Direction>(directionIndex);
-        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
-    }
+//    if(changeDirection) {
+//
+//        directionIndex++;
+//        if(directionIndex > 4) // keep index within bounds, 1 - 4
+//            directionIndex = 1;
+//        this->direction = static_cast<Direction>(directionIndex);
+//        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
+//    }
 
     switch (this->direction) {
         case Direction::NORTH:
@@ -91,6 +91,7 @@ void Crawler::move(bool changeDirection) {
             nextPosition = originalPosition; // reset position
         }
     }
+
     this->position = nextPosition;
     this->path.push_back(nextPosition);
 }
@@ -103,15 +104,15 @@ void Crawler::writeLifeHistory(list<pair<int, int>> &path) {
 }
 
 
-string Crawler::toString()  { // TODO change to override >>
-    string status;
-    if(alive)
-        status = "Alive";
-    else
-        status = "Dead";
-    return "| " + this->name + " (" + to_string(id) + ") | " +
-           "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
-           "Status: " + status + " | "
-           "Size: " + to_string(size) + " | " +
-           "Facing: " + directionToString(direction) + " \t|\n";
-}
+//string Crawler::toString()  { // TODO change to override >>
+//    string status;
+//    if(alive)
+//        status = "Alive";
+//    else
+//        status = "Dead";
+//    return "| " + this->name + " (" + to_string(id) + ") | " +
+//           "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
+//           "Status: " + status + " | "
+//           "Size: " + to_string(size) + " | " +
+//           "Facing: " + directionToString(direction) + " \t|\n";
+//}

@@ -6,13 +6,19 @@ int main() {
     int choice;
     bool exit = false;
     bool boardIsInitialized;
+    int bugsAlive;
     // TODO change size increase and position increase/decrease using operator override ++ --
 
-   Board* board = new Board(); // initialize board
+    Board* board = new Board(); // initialize board
     do{
         boardIsInitialized = board->getBoardState();// check board state after every time loop
+        bugsAlive = board->getBugsAlive();
         displayMainMenu();
         cin >> choice; // assuming choice is an integer
+        cout << bugsAlive << endl;
+        if(bugsAlive == 1)
+            board->endGame();
+        
         switch(choice) {
                 // Initialize Bug Board
             case 1: {
@@ -31,7 +37,6 @@ int main() {
                     break;
                 }
             }
-
                 // Display all Bugs
             case 2: {
                 board->displayAllBugs();
@@ -101,6 +106,9 @@ int main() {
                 cout << "* Invalid input, select a corresponding number from the menu *\n" << endl;
                 break;
             }
+        }
+        if(bugsAlive == 1) {
+            board->endGame();
         }
     } while(!exit);
     return 0;

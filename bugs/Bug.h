@@ -38,12 +38,15 @@ public:
     virtual void move(bool) = 0;
     virtual void updatePath(pair<int, int>&) = 0;
     virtual void writeLifeHistory(list<pair<int, int>>&) = 0;
-    virtual string toString() = 0; // TODO change to override >>
-    //virtual std::ostream& operator<< (std::ostream out) = 0; // stream insertion overload
-    friend std::ostream& operator<<(std::ostream&, const Bug* b);
+
     //// Helper methods
     bool isWayBlocked(pair<int, int>&);
     //Direction getNewDirection(Direction);
+
+    //// Operator overloads
+    friend std::ostream& operator<<(std::ostream&, const Bug* b);
+//    bool operator> (Bug* const*& obj);
+//    bool operator< (Bug const*& obj);
 };
 
 

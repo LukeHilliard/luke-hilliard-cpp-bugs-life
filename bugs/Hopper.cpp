@@ -67,7 +67,6 @@ void Hopper::move(bool changeDirection) {
                 break;
             case Direction::WEST:
                 nextPosition.first -= hopLength;
-                        ;
                 break;
         }
         //cout << "MOVING TO " <<  nextPosition.first << ", " << nextPosition.second << endl;
@@ -88,15 +87,3 @@ void Hopper::writeLifeHistory(list<pair<int, int>> &path) {
     // TODO
 }
 
-string Hopper::toString()  { // TODO change to override >>
-    string status;
-    if(alive)
-        status = "Alive";
-    else
-        status = "Dead";
-    return "| " + this->name + " (" + to_string(id) + ") | Hop: " + to_string(hopLength) + " | " +
-           "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
-           "Status: " + status + " | "
-                                 "Size: " + to_string(size) + " | " +
-           "Facing: " + directionToString(direction) + " \t|\n";
-}

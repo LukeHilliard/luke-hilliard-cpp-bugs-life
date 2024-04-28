@@ -27,9 +27,20 @@ bool Bug::isWayBlocked(pair<int, int> &position) {
 }
 
 //// Operator overloads
+// ostream overload
 ostream& operator<< (ostream& out, const Bug* ref_Bug) {
-    out << "Crawler (" << ref_Bug->id << ") | Size: " << ref_Bug->size << endl;
+    out << ref_Bug->name <<" (" << ref_Bug->id << ") | Size: " << ref_Bug->size << endl;
     out << "Position: (" << ref_Bug->position.first << ", " << ref_Bug->position.second << ") | Facing: " << directionToString(ref_Bug->direction) << "\n" << endl;
 
     return out;
 }
+
+// greater than ( > ) overload
+//bool Bug::operator> (const Bug* other) {
+//    if (size > other->size)
+//        return true;
+//    else
+//        return false;
+//}
+
+

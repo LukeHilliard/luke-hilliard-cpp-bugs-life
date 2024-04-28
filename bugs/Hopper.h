@@ -13,7 +13,6 @@ private:
 public:
     //// Constructor
     Hopper(int id, string name, int size, bool alive, pair<int, int> position, Direction direction, list<pair<int, int>> path, int hopLength);
-    Hopper();
 
     //// Getters
     int getHopLength();
@@ -22,7 +21,6 @@ public:
     virtual void move(bool) override;
     virtual void updatePath(pair<int, int>&) override;
     virtual void writeLifeHistory(list<pair<int, int>>&) override;
-    virtual string toString() override;
 };
 
 
