@@ -10,4 +10,5 @@
 #include <map>
 
 void displayMainMenu();
+void addHeaderToFile();
 #endif //CPP_BUGS_LIFE_MAIN_H

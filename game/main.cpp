@@ -6,13 +6,18 @@ int main() {
     int choice;
     bool exit = false;
     bool boardIsInitialized;
-    // TODO change size increase and position increase/decrease using operator override ++ --
+    int bugsAlive;
 
-   Board* board = new Board(); // initialize board
+    Board* board = new Board(); // initialize board
+
+
     do{
-        boardIsInitialized = board->getBoardState();// check board state after every time loop
+        boardIsInitialized = board->getBoardState();// update board state
+        bugsAlive = board->getBugsAlive(); // update how many bugs are alive
         displayMainMenu();
+
         cin >> choice; // assuming choice is an integer
+        
         switch(choice) {
                 // Initialize Bug Board
             case 1: {
@@ -27,11 +32,12 @@ int main() {
                     if(initializeChoice == 'y') {
                         cout << "You can now reinitialize the bug board" << endl;
                        // board->updateBoardState(false); // set board state to uninitialized
+                    } else {
+
                     }
                     break;
                 }
             }
-
                 // Display all Bugs
             case 2: {
                 board->displayAllBugs();
@@ -41,7 +47,6 @@ int main() {
                 // Find a Bug by ID
             case 3: {
                 while(true) { // Infinite loop until user wants to return to main menu
-                    bool isValid = false;
                     if (boardIsInitialized) {
                         int inputId, temp;
                         cout << "Enter an ID to find, -1 to return (e.g. 101): ";
@@ -92,6 +97,7 @@ int main() {
             }
                 // End Game
             case 8: {
+                addHeaderToFile();
                 board->endGame();
                 exit = true;
                 break;
@@ -102,7 +108,15 @@ int main() {
                 break;
             }
         }
+        if(bugsAlive == 1) {
+            addHeaderToFile();
+            board->endGame();
+            exit = true;
+        }
     } while(!exit);
+
+    delete board; // Free allocated memory
+
     return 0;
 }
 
@@ -118,5 +132,19 @@ int main() {
         cout << "\t  6. Display all Cells listing their bugs\n";
         cout << "\t  7. Run Simulation\n";
         cout << "\t  8. Exit\n";
+
+}
+
+void addHeaderToFile() {
+    ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
+    if(fout) {
+        // get the time the game ended
+        std::time_t timeAtEndGame = std::time(nullptr);
+        string time = std::ctime(&timeAtEndGame);
+        string header;
+        header += "\n\nBugs Life Games, Play on " + time + "\nBugs in game --\n";
+        fout << header << endl;
+        fout.close();
+    }
 
 }

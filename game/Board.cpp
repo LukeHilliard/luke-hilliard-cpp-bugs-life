@@ -15,6 +15,15 @@ Board::Board() {
 
 //// Getters
 bool Board::getBoardState() { return this->isInitialized; }
+int Board::getBugsAlive() {
+    int alive = 0;
+    for (auto bugs = this->bugs.begin(); bugs != this->bugs.end(); bugs++) {
+        Bug *b = *bugs;
+        if (b->isAlive())
+            alive++;
+    }
+    return alive;
+}
 
 //// Setters
 void Board::updateBoardState(bool state) { this->isInitialized = state; }
@@ -62,6 +71,7 @@ void Board::tokenizeInputStream(string line, char type) {
                 Crawler* crawler = new Crawler(id, "Crawler", size, true, position, direction, path);
                 bugs.push_back(crawler);
                 cout << "Crawler added to the arena!\n";
+                cout << crawler;
                 break;
             }
             case 'H': {
@@ -69,6 +79,7 @@ void Board::tokenizeInputStream(string line, char type) {
                 Hopper *hopper = new Hopper(id, "Hopper", size, true, position, direction, path, hopLength);
                 bugs.push_back(hopper);
                 cout << "Hopper added to the arena!\n";
+                cout << hopper;
                 break;
             }
         }
@@ -96,8 +107,6 @@ void Board::initializeBoard() {
     } else {
         cout << "error opening file." << endl;
     }
-
-    //placeBugsOnBoard();
     cout << "* " << bugs.size() << " bugs added to the arena *" << endl;
 }
 
@@ -105,61 +114,63 @@ void Board::initializeBoard() {
 //////////////////////////       Actions towards the board         //////////////////////////
 // Takes an id as a parameter, loops through the bugs vector, if a matching ID is found, display the bug
 void Board::getBugById(int id) {
-    bool isFound = false;
-    for(auto bugsIter = bugs.begin(); bugsIter != bugs.end(); bugsIter++) {
-        Bug* b = *bugsIter;
-        if(b->getId() == id) {
-            isFound = true;
-            cout << b->toString() << endl;
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can find bugs by ID *--" << endl;
+    } else {
+        bool isFound = false;
+        for (auto bugsIter = bugs.begin(); bugsIter != bugs.end(); bugsIter++) {
+            Bug *b = *bugsIter;
+            if (b->getId() == id) {
+                isFound = true;
+                cout << b << endl; // operator overload
+            }
         }
+        if (!isFound)
+            cout << "No bug with ID " << id << " is currently on the board." << endl;
     }
-    if(!isFound)
-        cout << "No bug with ID " << id << " is currently on the board." << endl;
 }
 
 // Takes two references to two bugs and checks which has the bigger size. The biggest "eats" the other and grows by its size, the loser is removed from the board ( alive = false )
 void Board::fight(Bug* &bug1, Bug* &bug2) {
     if(bug1->isAlive() && bug2->isAlive()) {
-        cout << bug1->getName() << " (" << bug1->getId() << ")" << " Vs " << bug2->getName() << " (" << bug2->getId()
-             << ")" << endl;
+        cout << bug1->getName() << " (" << bug1->getId() << ")" << " Vs " << bug2->getName() << " (" << bug2->getId() << ")\t-->\t";
 
-        // TODO use overloaded operator to check which is bigger
         // find out which bug is bigger and increase side accordingly
-        if (bug1->getSize() > bug2->getSize()) {
+        if (bug1 > bug2) { // operator over load, checks which size is bigger
             bug1->eat(bug2->getSize());
             bug2->setAlive(false);
-        } else if (bug1->getSize() < bug2->getSize()) {
+            cout << bug1->getName() << " (" << bug1->getId() << ") won!" << endl;
+        } else if (bug2 > bug1) {  // operator over load, checks which size is bigger
             bug2->eat(bug1->getSize());
             bug1->setAlive(false);
+            cout << bug2->getName() << " (" << bug1->getId() << ") won!" << endl;
         }
         else { // bugs are the same size, create a random number from 1 to 10, even bug1=winner | odd bug2=winner
+            srand(time(0));
             bool decider = (rand() % 10 + 1) % 2 == 0;
             if (decider) { // is even
                 bug1->eat(bug2->getSize());
                 bug2->setAlive(false);
+                cout << bug1->getName() << " (" << bug1->getId() << ") won!" << endl;
             } else { // is odd
                 bug2->eat(bug1->getSize());
                 bug1->setAlive(false);
+                cout << bug2->getName() << " (" << bug1->getId() << ") won!" << endl;
             }
-        }
-        if (!bug1->isAlive()) {// if bug1 lost
-            cout << bug2->getName() << " (" << bug2->getId() << ")" << " has won" << endl;
-        } else {
-            cout << bug1->getName() << " (" << bug1->getId() << ")" << " has won" << endl;
         }
     }
 }
 
 // Loops through the bugs vector, if the bug is alive place the bug on the 2D board[][] at the positions provided from Bug
 void Board::placeBugsOnBoard() {
-    bugsAlive = 0;
+    this->bugsAlive = 0;
     // place bugs that are alive onto the board
     for(auto bugsIter = bugs.begin(); bugsIter != bugs.end(); bugsIter++) {
         Bug* bug = *bugsIter; // dereference bug from iter
         if(bug->isAlive()) {
             if(board[bug->getPosition().first][bug->getPosition().second] == nullptr) { // if the positions provided by the bug are empty on the board
                 board[bug->getPosition().first][bug->getPosition().second] = bug;
-                bugsAlive++;
+                this->bugsAlive++;
                 //cout << "positions from bugs: " << bug->getId() << " | " << x << ", " << y << endl;
             }
         }
@@ -169,165 +180,246 @@ void Board::placeBugsOnBoard() {
 // Simulates the "tapping" of the board, created with the idea of rendering in mind, displays the board, iterates through bugs vector and calls move function on each bug with the
 // possibility of changing direction, loop through bugs again and check if any have the same position, if they do make them fight, set all positions to nullptrs, call method to place bugs on board, repeat.
 void Board::tapBoard() {
-    bool changeDirection;
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can tap the board *--" << endl;
+    } else {
+        srand(time(0));
+        bool changeDirection;
 
-    displayBoard();
-    // Iterate through all the bugs that are alive and move them passing a bool which allows them to change direction at random
-    for (auto moveBugs = this->bugs.begin(); moveBugs != this->bugs.end(); moveBugs++) {
-        Bug* bug = *moveBugs;
-        changeDirection = (bug->getPathSize() > 0) && ((1 + rand() % 1000) % 3 == 0);
-        if (bug->isAlive())
-            bug->move(changeDirection);
-    }
 
-    // Iterate through all the bugs again, within iteration loop through the board and check if bug from iter has the same position as bug from board, if true fight
-    for(auto fightBugs = this->bugs.begin(); fightBugs != this->bugs.end(); fightBugs++) {
-        Bug* bug1 = *fightBugs;
-        Bug* bug2;
-        for(int x=0; x < 10; x++) {
-            for(int y=0; y < 10; y++) {
-                bug2 = this->board[x][y];
+        // cellsAtTime is a map of positions as keys and bugs as elements
+        cellsAtTime.clear(); // clear previous positions
+        displayBoard();
 
-                if(bug2 != nullptr ) {
-                    if(bug1->getId() != bug2->getId()) {
-                        //cout << "bug1 - " << bug1->getID() << endl;
-                        //cout << "bug2 - " << bug2->getID() << endl;
-                        if(bug1->getPosition() == bug2->getPosition()) {
-                            fight(bug1, bug2);
+        // Iterate through all the bugs that are alive and move them passing a bool which allows them to change direction at random
+        for (auto moveBugs = this->bugs.begin(); moveBugs != this->bugs.end(); moveBugs++) {
+            Bug *bug = *moveBugs;
+            changeDirection = (bug->getPathSize() > 0) && ((1 + rand() % 1000) % 3 == 0);
+            if (bug->isAlive()) {
+                bug->move(changeDirection);
+                cellsAtTime[bug->getPosition()].push_back(bug);// store new bug positions on the board
+            }
+        }
+
+        // Iterate through cellsAtTime if a keys list length is > 1 then more than 1 bug is on that position, they must fight
+        for (auto fightBugs = cellsAtTime.begin(); fightBugs != cellsAtTime.end(); fightBugs++) {
+//        pair<int, int> position  = fightBugs->first; // key
+//        list<Bug*> bugs = fightBugs->second; // value
+
+            // only loop through positions that have more than 1 bug
+            if (fightBugs->second.size() > 1) {
+
+                // iterate through the Bugs List
+                for (auto bugs = fightBugs->second.begin(); bugs != fightBugs->second.end(); bugs++) {
+                    if (fightBugs->second.size() == 2) {
+                        fight(fightBugs->second.front(), fightBugs->second.back());
+                    } else { // more than one bug is in the cell
+                        int biggestSize = 0;
+                        Bug *biggestBugInCell;
+
+                        // look through the list to find the biggest bug
+                        for (auto bugsList = fightBugs->second.begin();
+                             bugsList != fightBugs->second.end(); bugsList++) {
+                            Bug *b = *bugsList;
+
+                            if (b->getSize() > biggestSize) {
+                                biggestSize = b->getSize();
+                                biggestBugInCell = b;
+                            }
                         }
+                        //cout << "Biggest " << biggestBugInCell->getName() << " " << biggestBugInCell->getId() << " Size " << biggestBugInCell->getSize() << endl;
+                        for (auto eatLosers = fightBugs->second.begin();
+                             eatLosers != fightBugs->second.end(); eatLosers++) {
+                            Bug *loser = *eatLosers;
+                            if (loser->getId() != biggestBugInCell->getId())
+                                fight(biggestBugInCell, loser);
+                        }
+
+                        //cout << "New size " << biggestBugInCell->getSize() << endl;
                     }
                 }
             }
         }
-    }
 
-    // reset the board with nullptrs
-    for (int x = 0; x <= 9; x++) {
-        for (int y = 0; y <= 9; y++) {
-            this->board[x][y] = nullptr;
+
+        // reset the board with nullptrs before updating board with new positions
+        for (int x = 0; x <= 9; x++) {
+            for (int y = 0; y <= 9; y++) {
+                this->board[x][y] = nullptr;
+            }
         }
+        placeBugsOnBoard();
     }
-    placeBugsOnBoard();
-
 }
 
-// Overloaded endGame method for two possible outcomes, 1) game was ran from simulation and there is 1 bug left. 2) the game was ended manually
-void Board::endGame(Bug* &winner) /* auto ending*/ {
-    cout << winner->getName() << " (" << winner->getId() << ") is the last one standing." << endl;
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            this->board[i][j] = nullptr;
+void Board::endGame()  {
+    bool bugsLeft = this->getBugsAlive() == 1;
+    if(!getBoardState()) { // if the board is not initialized end the game without displaying any bug information
+        cout << "\nExiting game..." << endl;
+    } else {
+        // enter this branch if there is more than 1 bug left, the game was ended manually
+        if (!bugsLeft) {
+            cout << "+------------------* Game ended  *------------------+\n" << endl;
+            cout << "\t\t\t\tRemaining bugs: " << this->getBugsAlive() << "\n" << endl;
+
+            for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+                Bug *bug = *iter;
+                cout << "\t\t\t" << bug->getName() << " (" << bug->getId() << ") | ";
+                cout << "Final size: " << bug->getSize();
+                if (bug->getSize() == 20)
+                    cout << " (MAX)" << endl;
+                else
+                    cout << endl;
+                cout << "\t\tFinal position: ( " << bug->getPosition().first << ", " << bug->getPosition().second
+                     << ")" << " | Total moves: " << bug->getPathSize() << endl;
+                cout << "\t\t\t-------------------------------" << endl;
+            }
+            // delete bugs
+            for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+                Bug *b = *iter;
+                //delete b;
+            }
+            cout << "\n\n+---------------------------------------------------+\n" << endl;
+        } else { // Enter this branch if the game was end automatically due to one bug remaining
+            Bug* winner;
+            for(auto& b: bugs) {
+                if(b->isAlive())
+                    b = winner;
+            }
+            cout << "+--------------------* Winner  *--------------------+\n" << endl;
+
+                cout << "\t\t\t-------------------------------" << endl;
+                cout << "\t\t\t" << winner->getName() << " (" << winner->getId() << ") | ";
+                cout << "Final size: " << winner->getSize();
+                if (winner->getSize() == 20)
+                    cout << " (MAX)" << endl;
+                else
+                    cout << endl;
+                cout << "\t\tFinal position: ( " << winner->getPosition().first << ", " << winner->getPosition().second
+                     << ")" << " | Total moves: " << winner->getPathSize() << endl;
+                cout << "\t\t\t-------------------------------" << endl;
+
+            cout << "\n+---------------------------------------------------+\n" << endl;
+
         }
+
+        // write life history to file
+        for(auto writeBugs = this->bugs.begin(); writeBugs != this->bugs.end(); writeBugs++) {
+            Bug* b = *writeBugs;
+            b->writeLifeHistory();
+        }
+        updateBoardState(false);
     }
-    updateBoardState(false);
-}
-void Board::endGame() /* manual ending */ {
-    bool bugsLeft = bugs.size() > 0;
-    if(bugsLeft)
-        cout << "\t\t\t--------* Bugs remaining *--------" << endl;
-    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-        Bug *bug = *iter;
-        bug->writeLifeHistory(bug->getPath());
-        if(bugsLeft)
-            cout << bug->toString();
-    }
+
+
 }
 
 
 void Board::runSimulation() {
-    // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
-    do{
-        this->tapBoard();
-        this_thread::sleep_for(chrono::milliseconds (50)); // stop execution on this thread for 1 second
-    } while(bugsAlive > 1); // loop until 1 bug remains
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can run the simulation *--" << endl;
+    } else {
+        // sleep_for learned from https://cplusplus.com/reference/thread/this_thread/sleep_for/
+        do{
+            this->tapBoard();
+            this_thread::sleep_for(chrono::milliseconds (1000)); // stop execution on this thread for 1 second
+        } while(bugsAlive > 1); // loop until 1 bug remains
 
-    displayBoard(); // display the final move
+        // if this point is reached there is 1 bug left alive and the game ends
+        displayBoard(); // display the final move
 
-    for(Bug* winner: bugs) { // find the last bug who is left alive
-        if(winner->isAlive())
-            this->endGame(winner);
+        endGame();
     }
-
 }
 
 
 //////////////////////////       Display methods         //////////////////////////
 // Method to display all bugs. Each bug type implements there own TODO operator<< override
 void Board::displayAllBugs() {
-    if(!Board::isInitialized) { // if the board is not initialised don't allow display all
+    if(!Board::isInitialized) {
         cout << "--* You need to initialize the bug board before you can display bugs *--" << endl;
     } else {
-        cout << "\t\t------*\tBugs in play\t*------" << endl;
+        cout << "------*\t  Bugs in play\t*------" << endl;
         for(auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
             // Access the pointer to Bug object
             Bug* bug = *iter;
-            cout << bug->toString();
+            cout <<  bug; // operator overload
         }
         cout << endl;
     }
 }
 // Method to display the board with all bugs in their position at the time of the method being called
 void Board::displayBoard() {
-    // Print top border
-    cout << "+---------------------+" << endl;
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can display the board *--" << endl;
+    } else {
+        // Print top border
+        cout << "+---------------------+" << endl;
 
-    // Print rows
-    for (int i = 0; i < 10; ++i) {
-        cout << "| ";
-        for (int j = 0; j < 10; ++j) {
-            if (board[i][j] != nullptr) {
-                Bug* bug = board[i][j];
-                if (bug->getName() == "Crawler" && bug->isAlive()) { // if bug is type crawler and it is alive
-                    cout << "C ";
-                } else if (bug->getName() == "Hopper" && bug->isAlive()) { // if bug is type hopper and it is alive
-                    cout << "H ";
+        // Print rows
+        for (int i = 0; i < 10; ++i) {
+            cout << "| ";
+            for (int j = 0; j < 10; ++j) {
+                if (board[i][j] != nullptr) {
+                    Bug *bug = board[i][j];
+                    if (bug->getName() == "Crawler" && bug->isAlive()) { // if bug is type crawler and it is alive
+                        cout << "C ";
+                    } else if (bug->getName() == "Hopper" && bug->isAlive()) { // if bug is type hopper and it is alive
+                        cout << "H ";
+                    } else {
+                        cout << ". ";
+                    }
                 } else {
                     cout << ". ";
                 }
-            } else {
-                cout << ". ";
             }
+            cout << "|" << endl;
         }
-        cout << "|" << endl;
+        // Print bottom border
+        cout << "+---------------------+" << endl;
     }
-    // Print bottom border
-    cout << "+---------------------+" << endl;
 }
 //  Displays all the positions a Bug has been too up until the point of method call
 void Board::displayLifeHistory() {
-    string status;
-    cout << "--* Life History *--" << endl;
-    for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
-        Bug *bug = *iter;
-        if(bug->isAlive())
-            status = "Alive";
-        else
-            status = "Dead";
-        cout << bug->getName() << "(" << bug->getId() << ") Status: " << status << " | Path history: ";
-        // iterate over the path history of current bug
-        list<pair<int, int>> path = bug->getPath();
-        for (auto pathIter = path.begin(); pathIter != path.end(); pathIter++) {
-            pair<int, int> position = *pathIter;
-            cout << "(" << position.first << "," << position.second << ") ";
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can display bugs life history *--" << endl;
+    } else {
+        string status;
+        cout << "--* Life History *--" << endl;
+        for (auto iter = this->bugs.begin(); iter != this->bugs.end(); iter++) {
+            Bug *bug = *iter;
+            if (bug->isAlive())
+                status = "Alive";
+            else
+                status = "Dead";
+            cout << bug->getName() << "(" << bug->getId() << ") Status: " << status << " | Path history: ";
+            // iterate over the path history of current bug
+            list<pair<int, int>> path = bug->getPath();
+            for (auto pathIter = path.begin(); pathIter != path.end(); pathIter++) {
+                pair<int, int> position = *pathIter;
+                cout << "(" << position.first << "," << position.second << ") ";
+            }
+            cout << endl;
         }
-        cout << endl;
     }
 }
 // Displays a list of all cells positions, if a bug is in a cell, the bugs information is displayed along with it
 void Board::displayCellsAsList() {
-    if(this->getBoardState()) {
+    if(!Board::isInitialized) {
+        cout << "--* You need to initialize the bug board before you can display cells as a list *--" << endl;
+    } else {
         cout << "Position   |    Holding" << endl;
-        for(int x = 0; x < 10; x++) {
-            for(int y = 0; y < 10; y++) {
-                Bug* bug = board[x][y];
-                if(bug != nullptr)  // if there is a bug there
-                    cout << "\t(" << x << ", " << y << ") | " << bug->getName() << " (" << bug->getId() << ")" << "Size:" << bug->getSize() << endl;
+        for (int x = 0; x < 10; x++) {
+            for (int y = 0; y < 10; y++) {
+                Bug *bug = board[x][y];
+                if (bug != nullptr)  // if there is a bug there
+                    cout << "\t(" << x << ", " << y << ") | " << bug->getName() << " (" << bug->getId() << ")"
+                         << "Size:" << bug->getSize() << endl;
                 else
-                    cout <<"\t(" << x << ", " << y << ") | empty" << endl;
+                    cout << "\t(" << x << ", " << y << ") | empty" << endl;
             }
         }
         displayBoard();
-    } else {
-        cout << "---* You need to initialise the bug board before you can display the board *---" << endl;
+
     }
 }

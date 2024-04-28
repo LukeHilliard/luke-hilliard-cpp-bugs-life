@@ -16,16 +16,33 @@
 class Board {
 private:
     vector<Bug *> bugs; // vector holding initialized bugs from txt
-    Bug* board[10][10]; // 2D array representing the board, holds pointers to Bug objects
+    Bug* board[10][10]; // 2D array representing the board, a list of pointers to Bug objects
+    map<pair<int, int>, list<Bug*>> cellsAtTime; // through each iteration the cells will be cleared and populated with positions and bugs in that position
     bool isInitialized;
     int bugsAlive;
 
 public:
-    /// Constructor
+    //// Constructor
     Board();
+
+    //// Destructor
+    ~Board() {
+        for(auto& bug: bugs) {
+            delete bug;
+            bug = nullptr;
+        }
+        cellsAtTime.clear();
+      for(int x = 0; x < 10; x++) {
+          for(int y = 0; y < 10; y++) {
+              delete board[x][y];
+              board[x][y] = nullptr;
+          }
+      }
+    }
 
     //// Getters
     bool getBoardState();
+    int getBugsAlive();
 
     //// Setters
     void updateBoardState(bool);
@@ -39,8 +56,7 @@ public:
     void fight(Bug* &, Bug* &);
     void placeBugsOnBoard();
     void tapBoard();
-    void endGame(); // when the game ends manually
-    void endGame(Bug*&); // when the game ends via simulation
+    void endGame();
     void runSimulation();
 
     /// Display methods

@@ -6,6 +6,7 @@
 #define CPP_BUGS_LIFE_BUG_H
 #include <utility>
 #include <list>
+#include <fstream>
 #include "Direction.h"
 
 //// BASE CLASS
@@ -37,13 +38,17 @@ public:
     //// Virtual methods passed from Base class to children
     virtual void move(bool) = 0;
     virtual void updatePath(pair<int, int>&) = 0;
-    virtual void writeLifeHistory(list<pair<int, int>>&) = 0;
-    virtual string toString() = 0; // TODO change to override >>
-    //virtual std::ostream& operator<< (std::ostream out) = 0; // stream insertion overload
+    virtual void writeLifeHistory() = 0;
 
     //// Helper methods
     bool isWayBlocked(pair<int, int>&);
     //Direction getNewDirection(Direction);
+
+    //// Operator overloads
+    friend std::ostream& operator<<(std::ostream&, const Bug* b);
+    bool operator> (const Bug*& obj);
+
+//    bool operator< (Bug const*& obj);
 };
 
 

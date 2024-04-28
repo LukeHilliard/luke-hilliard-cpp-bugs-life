@@ -30,21 +30,20 @@ void Hopper::move(bool changeDirection) {
         if(directionIndex > 4) // keep index within bounds, 1 - 4
             directionIndex = 1;
         this->direction = static_cast<Direction>(directionIndex);
-        cout << "Bug-" << id << " changeDirection= " << directionToString(direction) << endl;
     }
 
     switch (this->direction) {
         case Direction::NORTH:
-            nextPosition.second -= 1;
+            nextPosition.second -= hopLength;
             break;
         case Direction::EAST:
-            nextPosition.first += 1;
+            nextPosition.first += hopLength;
             break;
         case Direction::SOUTH:
-            nextPosition.second += 1;
+            nextPosition.second += hopLength;
             break;
         case Direction::WEST:
-            nextPosition.first -= 1;
+            nextPosition.first -= hopLength;
             break;
     }
 
@@ -57,16 +56,16 @@ void Hopper::move(bool changeDirection) {
         //cout << "TRYING " << directionToString(direction) <<endl;
         switch (this->direction) {
             case Direction::NORTH:
-                nextPosition.second -= 1;
+                nextPosition.second -= hopLength;
                 break;
             case Direction::EAST:
-                nextPosition.first += 1;
+                nextPosition.first += hopLength;
                 break;
             case Direction::SOUTH:
-                nextPosition.second += 1;
+                nextPosition.second += hopLength;
                 break;
             case Direction::WEST:
-                nextPosition.first -= 1;
+                nextPosition.first -= hopLength;
                 break;
         }
         //cout << "MOVING TO " <<  nextPosition.first << ", " << nextPosition.second << endl;
@@ -83,19 +82,41 @@ void Hopper::move(bool changeDirection) {
 
 //// Helper methods
 void Hopper::updatePath(pair<int, int> &latestPosition) { this->path.push_back(latestPosition); }
-void Hopper::writeLifeHistory(list<pair<int, int>> &path) {
-    // TODO
+void Hopper::writeLifeHistory() {
+    string LIFE_HISTORY, status;
+
+    ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
+    if(fout) // make sure the file has opened correctly
+    {
+        // create string to before writing to file
+        string positionStr;
+
+        if(alive)
+            status = "Alive";
+        else
+            status = "Dead";
+
+        // construct life history string
+        LIFE_HISTORY += this->name + "(" + to_string(this->id) + ") Status: " + status + "\n";
+        LIFE_HISTORY += "Final size: " + to_string(this->size) + "\n";
+        LIFE_HISTORY += "Moved " + to_string(this->getPathSize()) + " times\n";
+        LIFE_HISTORY += "Path: \n";
+        // add all paths to line
+        for(auto iter = this->path.begin(); iter != this->path.end(); iter++) {
+            pair<int, int> nextPosition = *iter; // Dereference iter
+            LIFE_HISTORY += "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
+        }
+        LIFE_HISTORY +=  " |";
+
+        // bottom border
+        LIFE_HISTORY += "\n";
+
+
+
+        fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
+        fout.close(); // close the file when we are finished.
+    } else {
+        cout << "Unable to open file." <<endl;
+    }
 }
 
-string Hopper::toString()  { // TODO change to override >>
-    string status;
-    if(alive)
-        status = "Alive";
-    else
-        status = "Dead";
-    return "| " + this->name + " (" + to_string(id) + ") | Hop: " + to_string(hopLength) + " | " +
-           "Position: (" + to_string(position.first) + ", " + to_string(position.second) + ") | " +
-           "Status: " + status + " | "
-                                 "Size: " + to_string(size) + " | " +
-           "Facing: " + directionToString(direction) + " \t|\n";
-}

@@ -14,13 +14,13 @@ enum class Direction {NORTH = 1, EAST = 2, SOUTH = 3, WEST = 4};
 // units without causing linker errors
 inline string directionToString(Direction direction) {
     switch (direction) {
-        case Direction::NORTH:
+        case Direction::NORTH: // left
             return "NORTH";
-        case Direction::EAST:
+        case Direction::EAST: // down
             return "EAST";
-        case Direction::SOUTH:
+        case Direction::SOUTH: // right
             return "SOUTH";
-        case Direction::WEST:
+        case Direction::WEST: // up
             return "WEST";
         default:
             return "UNKNOWN";

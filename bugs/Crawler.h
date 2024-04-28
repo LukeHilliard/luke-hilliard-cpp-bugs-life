@@ -8,7 +8,6 @@
 #include <iostream>
 
 class Crawler : public Bug {
-protected:
 
 public:
     //// Constructor
@@ -18,9 +17,7 @@ public:
     //// Override derived virtual functions from Bug
     virtual void move(bool) override;
     virtual void updatePath(pair<int, int>&) override;
-    virtual void writeLifeHistory(list<pair<int, int>>&) override;
-    virtual string toString() override;
-    //virtual std::ostream& operator<< (std::ostream out) override;
+    virtual void writeLifeHistory() override;
 };
 
 
