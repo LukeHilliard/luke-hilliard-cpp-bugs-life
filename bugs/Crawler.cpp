@@ -99,8 +99,42 @@ void Crawler::move(bool changeDirection) {
 
 //// Helper methods
 void Crawler::updatePath(pair<int, int> &latestPosition) { this->path.push_back(latestPosition); }
-void Crawler::writeLifeHistory(list<pair<int, int>> &path) {
-    // TODO
+void Crawler::writeLifeHistory() {
+    string LIFE_HISTORY, status;
+
+    ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
+    if(fout) // make sure the file has opened correctly
+    {
+        // create string to before writing to file
+        string positionStr;
+
+        if(alive)
+            status = "Alive";
+        else
+            status = "Dead";
+
+        // construct life history string
+        LIFE_HISTORY += this->name + "(" + to_string(this->id) + ") Status: " + status + "\n";
+        LIFE_HISTORY += "Final size: " + to_string(this->size) + "\n";
+        LIFE_HISTORY += "Moved " + to_string(this->getPathSize()) + " times\n";
+        LIFE_HISTORY += "Path: \n";
+        // add all paths to line
+        for(auto iter = this->path.begin(); iter != this->path.end(); iter++) {
+            pair<int, int> nextPosition = *iter; // Dereference iter
+            LIFE_HISTORY += "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
+        }
+        LIFE_HISTORY +=  " |";
+
+        // bottom border
+        LIFE_HISTORY += "\n";
+
+
+
+        fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
+        fout.close(); // close the file when we are finished.
+    } else {
+        cout << "Unable to open file." <<endl;
+    }
 }
 
 

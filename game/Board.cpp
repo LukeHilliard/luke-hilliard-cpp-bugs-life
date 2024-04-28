@@ -289,6 +289,13 @@ void Board::endGame() /* manual ending */ {
             cout << "\n+---------------------------------------------------+\n" << endl;
 
         }
+
+        // write life history to file
+        for(auto writeBugs = this->bugs.begin(); writeBugs != this->bugs.end(); writeBugs++) {
+            Bug* b = *writeBugs;
+            b->writeLifeHistory();
+        }
+        updateBoardState(false);
     }
 
 

@@ -17,7 +17,7 @@ public:
     //// Override derived virtual functions from Bug
     virtual void move(bool) override;
     virtual void updatePath(pair<int, int>&) override;
-    virtual void writeLifeHistory(list<pair<int, int>>&) override;
+    virtual void writeLifeHistory() override;
 };
 
 

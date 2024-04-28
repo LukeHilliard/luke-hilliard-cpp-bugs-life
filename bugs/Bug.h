@@ -6,6 +6,7 @@
 #define CPP_BUGS_LIFE_BUG_H
 #include <utility>
 #include <list>
+#include <fstream>
 #include "Direction.h"
 
 //// BASE CLASS
@@ -37,7 +38,7 @@ public:
     //// Virtual methods passed from Base class to children
     virtual void move(bool) = 0;
     virtual void updatePath(pair<int, int>&) = 0;
-    virtual void writeLifeHistory(list<pair<int, int>>&) = 0;
+    virtual void writeLifeHistory() = 0;
 
     //// Helper methods
     bool isWayBlocked(pair<int, int>&);

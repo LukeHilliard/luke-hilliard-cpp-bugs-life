@@ -83,7 +83,45 @@ void Hopper::move(bool changeDirection) {
 
 //// Helper methods
 void Hopper::updatePath(pair<int, int> &latestPosition) { this->path.push_back(latestPosition); }
-void Hopper::writeLifeHistory(list<pair<int, int>> &path) {
-    // TODO
+void Hopper::writeLifeHistory() {
+    string LIFE_HISTORY, status;
+
+    ofstream fout("bugs_life_history_date_time.out"); // create a file output stream to Output.txt. If the file does not exist create it.
+    if(fout) // make sure the file has opened correctly
+    {
+        // get the time the game ended
+        std::time_t timeAtEndGame = std::time(nullptr);
+        string time = std::ctime(&timeAtEndGame);
+
+        // create string to before writing to file
+        string id = to_string(this->id);
+        string positionStr;
+
+        if(alive)
+            status = "Alive";
+        else
+            status = "Dead";
+
+        // construct life history string
+        LIFE_HISTORY += "---------+ Bugs Life Game \nAt: " + time + "\n";
+        LIFE_HISTORY += this->name + "(" + to_string(this->id) + ") Status: " + status + "\n";
+        LIFE_HISTORY += "Final size: " + to_string(this->size) + "\n";
+        LIFE_HISTORY += "Moved " + to_string(this->getPathSize()) + " times\n";
+        LIFE_HISTORY += "Path: \n";
+        // add all paths to line
+        for(auto iter = this->path.begin(); iter != this->path.end(); iter++) {
+            pair<int, int> nextPosition = *iter; // Dereference iter
+            positionStr = "(" + to_string(nextPosition.first) + ", " + to_string(nextPosition.second) + ")";
+            LIFE_HISTORY += positionStr;
+        }
+        LIFE_HISTORY +=  " |";
+
+        // bottom border
+        LIFE_HISTORY += "\n";
+        fout << LIFE_HISTORY << endl; // add it to the file followed by a new line character.
+        fout.close(); // close the file when we are finished.
+    } else {
+        cout << "Unable to open file." <<endl;
+    }
 }
 

@@ -16,8 +16,6 @@ int main() {
         displayMainMenu();
         cin >> choice; // assuming choice is an integer
         cout << bugsAlive << endl;
-        if(bugsAlive == 1)
-            board->endGame();
         
         switch(choice) {
                 // Initialize Bug Board
@@ -97,6 +95,7 @@ int main() {
             }
                 // End Game
             case 8: {
+                addHeaderToFile();
                 board->endGame();
                 exit = true;
                 break;
@@ -108,7 +107,9 @@ int main() {
             }
         }
         if(bugsAlive == 1) {
+            addHeaderToFile();
             board->endGame();
+            exit = true;
         }
     } while(!exit);
     return 0;
@@ -126,5 +127,19 @@ int main() {
         cout << "\t  6. Display all Cells listing their bugs\n";
         cout << "\t  7. Run Simulation\n";
         cout << "\t  8. Exit\n";
+
+}
+
+void addHeaderToFile() {
+    ofstream fout("bugs_life_history_date_time.out", ios::app); // create a file output stream to Output.txt. If the file does not exist create it.
+    if(fout) {
+        // get the time the game ended
+        std::time_t timeAtEndGame = std::time(nullptr);
+        string time = std::ctime(&timeAtEndGame);
+        string header;
+        header += "\n\nBugs Life Games, Play on " + time + "\nBugs in game --\n";
+        fout << header << endl;
+        fout.close();
+    }
 
 }
